@@ -103,15 +103,14 @@
 		357EA77E1BCAAF3F00605442 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				357EA7B51BCAB11D00605442 /* Assemblies */,
+				357EA7B61BCAB13300605442 /* Models */,
+				357EA7B91BCAB16400605442 /* Services */,
+				357EA7B71BCAB14600605442 /* Controllers */,
+				357EA7B81BCAB14E00605442 /* Views */,
 				357EA7821BCAAF3F00605442 /* AppDelegate.h */,
 				357EA7831BCAAF3F00605442 /* AppDelegate.m */,
-				357EA7851BCAAF3F00605442 /* ViewController.h */,
-				357EA7861BCAAF3F00605442 /* ViewController.m */,
-				357EA7881BCAAF3F00605442 /* Main.storyboard */,
-				357EA78E1BCAAF3F00605442 /* Assets.xcassets */,
-				357EA7901BCAAF3F00605442 /* LaunchScreen.storyboard */,
-				357EA7931BCAAF3F00605442 /* Info.plist */,
-				357EA78B1BCAAF3F00605442 /* WeatherForecast.xcdatamodeld */,
+				357EA7BA1BCAB18A00605442 /* Resources */,
 				357EA77F1BCAAF3F00605442 /* Supporting Files */,
 			);
 			path = WeatherForecast;
@@ -120,6 +119,7 @@
 		357EA77F1BCAAF3F00605442 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				357EA7931BCAAF3F00605442 /* Info.plist */,
 				357EA7801BCAAF3F00605442 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -141,6 +141,54 @@
 				357EA7A91BCAAF3F00605442 /* Info.plist */,
 			);
 			path = WeatherForecastUITests;
+			sourceTree = "<group>";
+		};
+		357EA7B51BCAB11D00605442 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Assemblies;
+			sourceTree = "<group>";
+		};
+		357EA7B61BCAB13300605442 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				357EA78B1BCAAF3F00605442 /* WeatherForecast.xcdatamodeld */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		357EA7B71BCAB14600605442 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				357EA7851BCAAF3F00605442 /* ViewController.h */,
+				357EA7861BCAAF3F00605442 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		357EA7B81BCAB14E00605442 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				357EA7881BCAAF3F00605442 /* Main.storyboard */,
+				357EA7901BCAAF3F00605442 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		357EA7B91BCAB16400605442 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		357EA7BA1BCAB18A00605442 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				357EA78E1BCAAF3F00605442 /* Assets.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
