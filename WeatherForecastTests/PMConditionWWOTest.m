@@ -69,7 +69,22 @@
     }
     
     expect(condition.date).toNot.beNil();
-//    expect(condition.temperatureC).toNot.beNil();
+    
+    expect(condition.temperatureC).to.equal(@7);
+    expect(condition.temperatureF).to.equal(@45);
+    
+    expect(condition.windSpeedKmph).to.equal(@15);
+    expect(condition.windDirectionDegree).to.equal(@310);
+    expect(condition.windDirectionDescription).to.equal(@"NW");
+    
+    expect(condition.weatherCode).to.equal(@116);
+    expect(condition.weatherDescription).to.equal(@"Partly Cloudy");
+    expect(condition.weatherIconUrl).toNot.beNil();
+    expect(condition.weatherIconUrl).to.equal([NSURL URLWithString:@"http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png"]);
+    
+    expect(condition.precipitationMm).to.equal(@0);
+    expect(condition.humidityPercentage).to.equal(@93);
+    expect(condition.pressureMilibars).to.equal(@1024);
 }
 
 @end
