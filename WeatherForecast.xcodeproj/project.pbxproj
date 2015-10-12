@@ -12,6 +12,8 @@
 		3544749D1BCBA66300B87528 /* PMCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3544749C1BCBA66300B87528 /* PMCondition.m */; settings = {ASSET_TAGS = (); }; };
 		354474A11BCBA6E100B87528 /* PMConditionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 354474A01BCBA6E100B87528 /* PMConditionTest.m */; settings = {ASSET_TAGS = (); }; };
 		354474A51BCBBAA800B87528 /* PMBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 354474A41BCBBAA800B87528 /* PMBaseModel.m */; settings = {ASSET_TAGS = (); }; };
+		354474AA1BCBBC1C00B87528 /* PMConditionWWO.m in Sources */ = {isa = PBXBuildFile; fileRef = 354474A91BCBBC1C00B87528 /* PMConditionWWO.m */; settings = {ASSET_TAGS = (); }; };
+		354474AE1BCBBC5C00B87528 /* PMConditionWWOTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 354474AD1BCBBC5C00B87528 /* PMConditionWWOTest.m */; settings = {ASSET_TAGS = (); }; };
 		357EA7811BCAAF3F00605442 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 357EA7801BCAAF3F00605442 /* main.m */; };
 		357EA7841BCAAF3F00605442 /* PMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 357EA7831BCAAF3F00605442 /* PMAppDelegate.m */; };
 		357EA78A1BCAAF3F00605442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 357EA7881BCAAF3F00605442 /* Main.storyboard */; };
@@ -56,6 +58,9 @@
 		354474A01BCBA6E100B87528 /* PMConditionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConditionTest.m; sourceTree = "<group>"; };
 		354474A31BCBBAA800B87528 /* PMBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMBaseModel.h; sourceTree = "<group>"; };
 		354474A41BCBBAA800B87528 /* PMBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMBaseModel.m; sourceTree = "<group>"; };
+		354474A81BCBBC1C00B87528 /* PMConditionWWO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMConditionWWO.h; sourceTree = "<group>"; };
+		354474A91BCBBC1C00B87528 /* PMConditionWWO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConditionWWO.m; sourceTree = "<group>"; };
+		354474AD1BCBBC5C00B87528 /* PMConditionWWOTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConditionWWOTest.m; sourceTree = "<group>"; };
 		357EA77C1BCAAF3F00605442 /* WeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		357EA7801BCAAF3F00605442 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		357EA7821BCAAF3F00605442 /* PMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMAppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +120,7 @@
 		354474901BCAF5E300B87528 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				354474AB1BCBBC3100B87528 /* Mapping */,
 				354474991BCB9B0F00B87528 /* PMPlaceTest.m */,
 				354474A01BCBA6E100B87528 /* PMConditionTest.m */,
 			);
@@ -127,6 +133,39 @@
 				357EA78B1BCAAF3F00605442 /* WeatherForecast.xcdatamodeld */,
 			);
 			name = Storage;
+			sourceTree = "<group>";
+		};
+		354474A61BCBBBCC00B87528 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				354474A71BCBBBD800B87528 /* WorldWeatherOnline */,
+			);
+			name = Mapping;
+			sourceTree = "<group>";
+		};
+		354474A71BCBBBD800B87528 /* WorldWeatherOnline */ = {
+			isa = PBXGroup;
+			children = (
+				354474A81BCBBC1C00B87528 /* PMConditionWWO.h */,
+				354474A91BCBBC1C00B87528 /* PMConditionWWO.m */,
+			);
+			name = WorldWeatherOnline;
+			sourceTree = "<group>";
+		};
+		354474AB1BCBBC3100B87528 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				354474AC1BCBBC3C00B87528 /* WorldWeatherOnline */,
+			);
+			name = Mapping;
+			sourceTree = "<group>";
+		};
+		354474AC1BCBBC3C00B87528 /* WorldWeatherOnline */ = {
+			isa = PBXGroup;
+			children = (
+				354474AD1BCBBC5C00B87528 /* PMConditionWWOTest.m */,
+			);
+			name = WorldWeatherOnline;
 			sourceTree = "<group>";
 		};
 		357EA7731BCAAF3F00605442 = {
@@ -209,6 +248,7 @@
 		357EA7B61BCAB13300605442 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				354474A61BCBBBCC00B87528 /* Mapping */,
 				354474911BCAF5F100B87528 /* Storage */,
 				354474A31BCBBAA800B87528 /* PMBaseModel.h */,
 				354474A41BCBBAA800B87528 /* PMBaseModel.m */,
@@ -533,6 +573,7 @@
 				35B9917A1BCBC60400358608 /* PMUtils.m in Sources */,
 				357EA7841BCAAF3F00605442 /* PMAppDelegate.m in Sources */,
 				354474A51BCBBAA800B87528 /* PMBaseModel.m in Sources */,
+				354474AA1BCBBC1C00B87528 /* PMConditionWWO.m in Sources */,
 				357EA7C01BCAB94B00605442 /* PMAppAssembly.m in Sources */,
 				357EA7811BCAAF3F00605442 /* main.m in Sources */,
 				357EA7BD1BCAB78A00605442 /* PMCitiesListVC.m in Sources */,
@@ -549,6 +590,7 @@
 				35B991811BCBC7E100358608 /* NSValueTransformerTest.m in Sources */,
 				354474A11BCBA6E100B87528 /* PMConditionTest.m in Sources */,
 				3544749A1BCB9B0F00B87528 /* PMPlaceTest.m in Sources */,
+				354474AE1BCBBC5C00B87528 /* PMConditionWWOTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

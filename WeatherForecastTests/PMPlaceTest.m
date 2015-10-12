@@ -26,7 +26,7 @@
 
 - (void)testPlaceExists
 {
-    expect(self.place).toNot.beNil;
+    expect(self.place).toNot.beNil();
 }
 
 - (void)testPlaceHasNameAndQuery

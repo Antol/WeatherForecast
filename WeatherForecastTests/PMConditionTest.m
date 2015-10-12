@@ -24,7 +24,7 @@
 
 - (void)testConditionExists
 {
-    expect(self.condition).toNot.beNil;
+    expect(self.condition).toNot.beNil();
 }
 
 - (void)testConditionHasProperties
