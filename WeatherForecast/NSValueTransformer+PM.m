@@ -11,23 +11,27 @@
 
 @implementation NSValueTransformer (PM)
 
-+ (instancetype)PM_currentDateHoursTransformer
++ (instancetype)PM_dateAndTimeTransformer
 {
     static NSValueTransformer *dateTransformer = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        calendar.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"hh:mm a";
+        dateFormatter.dateFormat = @"yyyy-MM-dd";
+        dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+        timeFormatter.dateFormat = @"hh:mm a";
+        timeFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
         dateTransformer = [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-            NSDate *date = [dateFormatter dateFromString:value];
-            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-            NSDateComponents *componentsTime = [calendar components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:date];
-            NSDateComponents *componentsDate = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]];
-            componentsTime.year = componentsDate.year;
-            componentsTime.month = componentsDate.month;
-            componentsTime.day = componentsDate.day;
-            componentsTime.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-            return [calendar dateFromComponents:componentsTime];
+            NSDate *time = [timeFormatter dateFromString:value]?:[NSDate dateWithTimeIntervalSince1970:0];
+            NSDate *date = [dateFormatter dateFromString:value]?:[NSDate date];
+            NSDateComponents *componentsTime = [calendar components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:time];
+            NSDateComponents *componentsDate = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+            componentsDate.hour = componentsTime.hour;
+            componentsDate.minute = componentsTime.minute;
+            return [calendar dateFromComponents:componentsDate];
         } reverseBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
             return [dateFormatter stringFromDate:value];
         }];

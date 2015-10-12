@@ -10,7 +10,7 @@
 
 @interface NSValueTransformer (PM)
 
-+ (instancetype)PM_currentDateHoursTransformer;
++ (instancetype)PM_dateAndTimeTransformer;
 + (instancetype)PM_stringToNumberTransformer;
 
 @end

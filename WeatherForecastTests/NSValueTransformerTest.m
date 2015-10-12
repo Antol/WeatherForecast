@@ -21,11 +21,12 @@ static NSCalendar *calendar = nil;
 {
     [super setUp];
     calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    calendar.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
 }
 
-- (void)testCurrentDateHoursTransformerExists
+- (void)testDateAndTimeTransformerExists
 {
-    NSValueTransformer *transformer = [NSValueTransformer PM_currentDateHoursTransformer];
+    NSValueTransformer *transformer = [NSValueTransformer PM_dateAndTimeTransformer];
     expect(transformer).toNot.beNil();
 }
 
@@ -37,10 +38,9 @@ static NSCalendar *calendar = nil;
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
     components.hour = 8;
     components.minute = 41;
-    components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     NSDate *today_8_41_am_00 = [calendar dateFromComponents:components];
     
-    NSValueTransformer *transformer = [NSValueTransformer PM_currentDateHoursTransformer];
+    NSValueTransformer *transformer = [NSValueTransformer PM_dateAndTimeTransformer];
     NSDate *date = [transformer transformedValue:hoursString];
     
     expect(date).toNot.beNil();
@@ -55,16 +55,29 @@ static NSCalendar *calendar = nil;
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
     components.hour = 20;
     components.minute = 41;
-    components.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     NSDate *today_8_41_pm_00 = [calendar dateFromComponents:components];
     
-    NSValueTransformer *transformer = [NSValueTransformer PM_currentDateHoursTransformer];
+    NSValueTransformer *transformer = [NSValueTransformer PM_dateAndTimeTransformer];
     NSDate *date = [transformer transformedValue:hoursString];
     
     expect(date).toNot.beNil();
     expect(date).to.equal(today_8_41_pm_00);
 }
 
+- (void)testTransformDateString
+{
+    NSString *dateString = @"2015-10-12";
+    NSDateComponents *components = [NSDateComponents new];
+    components.year = 2015;
+    components.month = 10;
+    components.day = 12;
+    NSDate *expectedDate = [calendar dateFromComponents:components];
+    
+    NSValueTransformer *transformer = [NSValueTransformer PM_dateAndTimeTransformer];
+    NSDate *date = [transformer transformedValue:dateString];
+    
+    expect(date).to.equal(expectedDate);
+}
 
 - (void)testStringToNumberTransformerExists
 {

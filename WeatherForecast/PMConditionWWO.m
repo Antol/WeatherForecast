@@ -14,7 +14,7 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
-        PMSelectorString(date): @"observation_time",
+        PMSelectorString(date): @"date",
         PMSelectorString(temperatureC): @"temp_C",
         PMSelectorString(temperatureF): @"temp_F",
         PMSelectorString(windSpeedKmph): @"windspeedKmph",
@@ -31,7 +31,7 @@
 
 + (id)dateJSONTransformer
 {
-    return [NSValueTransformer PM_currentDateHoursTransformer];
+    return [NSValueTransformer PM_dateAndTimeTransformer];
 }
 
 + (id)temperatureCJSONTransformer{    return [NSValueTransformer PM_stringToNumberTransformer]; }
