@@ -22,7 +22,7 @@
 }
 
 
-- (RACSignal *)serchPlaceByName:(NSString *)name
+- (RACSignal *)searchPlaceByName:(NSString *)name
 {
     PMPlace *place = [PMPlace new];
     place.name = name;

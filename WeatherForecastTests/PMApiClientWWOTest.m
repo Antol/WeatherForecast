@@ -36,7 +36,7 @@ static id<PMApiClient> apiClient = nil;
     PMPlace *place = [PMPlace new];
     place.name = placeName;
     
-    RACSignal *searchSignal = [apiClient serchPlaceByName:placeName];
+    RACSignal *searchSignal = [apiClient searchPlaceByName:placeName];
     expect(searchSignal).will.sendValues(@[place]);
 }
 

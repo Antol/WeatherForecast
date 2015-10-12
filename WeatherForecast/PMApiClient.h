@@ -12,7 +12,7 @@
 
 @protocol PMApiClient <NSObject>
 
-- (RACSignal *)serchPlaceByName:(NSString *)name;
+- (RACSignal *)searchPlaceByName:(NSString *)name;
 - (RACSignal *)getWeatherForecastForPlace:(PMPlace *)place;
 
 @end
