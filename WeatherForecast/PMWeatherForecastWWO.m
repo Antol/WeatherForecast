@@ -9,16 +9,30 @@
 #import "PMWeatherForecastWWO.h"
 #import "PMConditionWWO.h"
 #import "PMConditionWWOCurrent.h"
+#import "PMPlaceWWO.h"
 
 @implementation PMWeatherForecastWWO
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
-//        PMSelectorString(place): @"data.request",
+        PMSelectorString(place): @"data.request",
         PMSelectorString(currentCondition): @"data.current_condition",
         PMSelectorString(dailyForecastConditions): @"data.weather"
     };
+}
+
++ (NSValueTransformer *)placeJSONTransformer
+{
+    static NSValueTransformer *transformer = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        transformer = [MTLJSONAdapter dictionaryTransformerWithModelClass:[PMPlaceWWO class]];
+    });
+    
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *places, BOOL *success, NSError *__autoreleasing *error) {
+        return [transformer transformedValue:places.firstObject];
+    }];
 }
 
 + (NSValueTransformer *)currentConditionJSONTransformer

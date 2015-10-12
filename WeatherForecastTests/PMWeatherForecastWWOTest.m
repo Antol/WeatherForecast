@@ -10,6 +10,8 @@
 #import <Expecta.h>
 #import "PMWeatherForecastWWO.h"
 #import "PMWeatherForecast.h"
+#import "PMPlace.h"
+#import "PMCondition.h"
 
 @interface PMWeatherForecastWWOTest : XCTestCase
 @end
@@ -188,9 +190,14 @@
         NSLog(@"================> %@", error);
     }
     
-//    expect(forecast.place).toNot.beNil();
+    expect(forecast.place).toNot.beNil();
+    expect(forecast.place.query).to.equal(@"Dublin, Ireland");
+    
     expect(forecast.currentCondition).toNot.beNil();
+    expect(forecast.currentCondition.temperatureC).to.equal(@5);
+    
     expect(forecast.dailyForecastConditions).toNot.beNil();
+    expect(forecast.dailyForecastConditions.count).to.equal(5);
 }
 
 @end
