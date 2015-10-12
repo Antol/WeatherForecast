@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <Expecta.h>
-#import <Expecta+ReactiveCocoa/Expecta+ReactiveCocoa.h>
+#import <LLReactiveMatchers.h>
 #import "PMApiClientWWO.h"
 #import "PMPlace.h"
 
@@ -37,7 +37,7 @@ static id<PMApiClient> apiClient = nil;
     place.name = placeName;
     
     RACSignal *searchSignal = [apiClient serchPlaceByName:placeName];
-    expect(searchSignal).will.completeSending(@[place]);
+    expect(searchSignal).will.sendValues(@[place]);
 }
 
 @end
