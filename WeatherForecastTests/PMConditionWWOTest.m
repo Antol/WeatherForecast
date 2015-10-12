@@ -76,7 +76,7 @@
     
     expect(condition.windSpeedKmph).to.equal(@15);
     expect(condition.windDirectionDegree).to.equal(@310);
-    expect(condition.windDirectionDescription).to.equal(@"NW");
+    expect(condition.windDirection).to.equal(PMWindDirectionNW);
     
     expect(condition.weatherCode).to.equal(@116);
     expect(condition.weatherDescription).to.equal(@"Partly Cloudy");
@@ -134,7 +134,7 @@
     
     expect(condition.windSpeedKmph).to.equal(@21);
     expect(condition.windDirectionDegree).to.equal(@358);
-    expect(condition.windDirectionDescription).to.equal(@"N");
+    expect(condition.windDirection).to.equal(PMWindDirectionN);
     
     expect(condition.weatherCode).to.equal(@116);
     expect(condition.weatherDescription).to.equal(@"Partly Cloudy");

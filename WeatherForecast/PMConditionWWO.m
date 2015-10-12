@@ -23,7 +23,7 @@
         PMSelectorString(temperatureMaxF): @"tempMaxF",
         PMSelectorString(windSpeedKmph): @"windspeedKmph",
         PMSelectorString(windDirectionDegree): @"winddirDegree",
-        PMSelectorString(windDirectionDescription): @"winddir16Point",
+        PMSelectorString(windDirection): @"winddir16Point",
         PMSelectorString(weatherCode): @"weatherCode",
         PMSelectorString(weatherDescription): @"weatherDesc",
         PMSelectorString(weatherIconUrl): @"weatherIconUrl",
@@ -52,6 +52,11 @@
 + (id)precipitationMmJSONTransformer{    return [NSValueTransformer PM_stringToNumberTransformer]; }
 + (id)humidityPercentageJSONTransformer{ return [NSValueTransformer PM_stringToNumberTransformer]; }
 + (id)pressureMilibarsJSONTransformer{   return [NSValueTransformer PM_stringToNumberTransformer]; }
+
++ (id)windDirectionJSONTransformer
+{
+    return [NSValueTransformer PM_windDirectionTransformer];
+}
 
 + (id)weatherDescriptionJSONTransformer
 {

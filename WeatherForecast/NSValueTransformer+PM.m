@@ -8,6 +8,7 @@
 
 #import "NSValueTransformer+PM.h"
 #import <Mantle.h>
+#import "PMCondition.h"
 
 @implementation NSValueTransformer (PM)
 
@@ -55,4 +56,37 @@
     return transformer;
 }
 
++ (instancetype)PM_windDirectionTransformer
+{
+    static NSValueTransformer *transformer = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSDictionary *mapping = @{
+            @"N":   @(PMWindDirectionN),
+            @"NNE": @(PMWindDirectionNNE),
+            @"NE":  @(PMWindDirectionNE),
+            @"ENE": @(PMWindDirectionENE),
+            @"E":   @(PMWindDirectionE),
+            @"ESE": @(PMWindDirectionESE),
+            @"SE":  @(PMWindDirectionSE),
+            @"SSE": @(PMWindDirectionSSE),
+            @"S":   @(PMWindDirectionS),
+            @"SSW": @(PMWindDirectionSSW),
+            @"SW":  @(PMWindDirectionSW),
+            @"WSW": @(PMWindDirectionWSW),
+            @"W":   @(PMWindDirectionW),
+            @"WNW": @(PMWindDirectionWNW),
+            @"NW":  @(PMWindDirectionNW),
+            @"NNW": @(PMWindDirectionNNW),
+        };
+        
+        transformer = [NSValueTransformer mtl_valueMappingTransformerWithDictionary:mapping
+                                                                       defaultValue:@(PMWindDirectionUnknown)
+                                                                reverseDefaultValue:nil];
+    });
+    return transformer;
+}
+
 @end
+
+

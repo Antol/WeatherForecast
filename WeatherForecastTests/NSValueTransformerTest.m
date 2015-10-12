@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <Expecta.h>
 #import "NSValueTransformer+PM.h"
+#import "PMCondition.h"
 
 @interface NSValueTransformerTest : XCTestCase
 @end
@@ -79,6 +80,7 @@ static NSCalendar *calendar = nil;
     expect(date).to.equal(expectedDate);
 }
 
+
 - (void)testStringToNumberTransformerExists
 {
     NSValueTransformer *transformer = [NSValueTransformer PM_stringToNumberTransformer];
@@ -91,6 +93,24 @@ static NSCalendar *calendar = nil;
     expect([transformer transformedValue:@"2"]).to.equal(@2);
     expect([transformer transformedValue:@"2.5"]).to.equal(@2.5f);
     expect([transformer transformedValue:@"-2.5"]).to.equal(@(-2.5f));
+}
+
+
+- (void)testWindDirectionTransformerExists
+{
+    NSValueTransformer *transformer = [NSValueTransformer PM_windDirectionTransformer];
+    expect(transformer).toNot.beNil();
+}
+
+- (void)testTransformWindDirection
+{
+    NSValueTransformer *transformer = [NSValueTransformer PM_windDirectionTransformer];
+    expect([transformer transformedValue:@"NW"]).to.equal(PMWindDirectionNW);
+    expect([transformer transformedValue:@"N"]).to.equal(PMWindDirectionN);
+    expect([transformer transformedValue:@"ESE"]).to.equal(PMWindDirectionESE);
+    expect([transformer transformedValue:@"NNW"]).to.equal(PMWindDirectionNNW);
+    expect([transformer transformedValue:@"SW"]).to.equal(PMWindDirectionSW);
+    expect([transformer transformedValue:@"S"]).to.equal(PMWindDirectionS);
 }
 
 @end

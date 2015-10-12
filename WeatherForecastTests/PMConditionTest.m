@@ -45,7 +45,7 @@
     
     self.condition.windSpeedKmph = tempNumber;
     self.condition.windDirectionDegree = tempNumber;
-    self.condition.windDirectionDescription = tempString;
+    self.condition.windDirection = PMWindDirectionE;
     
     self.condition.weatherCode = tempNumber;
     self.condition.weatherDescription = tempString;
