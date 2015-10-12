@@ -8,12 +8,6 @@
 
 #import "PMAppDelegate.h"
 
-@interface PMAppDelegate ()
-
-@end
-
-#pragma mark -
-
 @implementation PMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

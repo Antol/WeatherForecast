@@ -1,20 +1,20 @@
 PODS:
+  - Expecta (1.0.3)
   - Mantle (2.0.5):
     - Mantle/extobjc (= 2.0.5)
   - Mantle/extobjc (2.0.5)
-  - Specta (1.0.4)
   - Typhoon (3.3.3):
     - Typhoon/no-arc (= 3.3.3)
   - Typhoon/no-arc (3.3.3)
 
 DEPENDENCIES:
+  - Expecta (~> 1.0.3)
   - Mantle (~> 2.0.5)
-  - Specta (~> 1.0.4)
   - Typhoon (~> 3.3.3)
 
 SPEC CHECKSUMS:
+  Expecta: 9d1bff6c8b0eeee73a166a2ee898892478927a15
   Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
-  Specta: 69bb134672aae190a1379ff91df07dad8dd1f869
   Typhoon: df3d23f59dccc8eda3e6535e58afd160ae60567e
 
 COCOAPODS: 0.39.0

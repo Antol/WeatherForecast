@@ -7,7 +7,7 @@ pod 'Mantle', '~> 2.0.5'
 end
 
 target 'WeatherForecastTests' do
-pod 'Specta', '~> 1.0.4'
+pod 'Expecta', '~> 1.0.3'
 end
 
 target 'WeatherForecastUITests' do
