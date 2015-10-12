@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"================> %lu", (unsigned long)self.test);
+    NSLog(@"================> %@", self.test);
 }
 
 @end

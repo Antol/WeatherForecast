@@ -4,6 +4,8 @@
 <dict>
 	<key>TyphoonInitialAssemblies</key>
 	<array>
+		<string>PMConfigAssembly</string>
+		<string>PMServicesAssembly</string>
 		<string>PMAppAssembly</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>

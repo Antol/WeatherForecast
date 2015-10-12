@@ -11,6 +11,10 @@
 #import "PMPlace.h"
 #import "PMWeatherForecast.h"
 
+@interface PMApiClientWWO ()
+@property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
+@end
+
 @implementation PMApiClientWWO
 
 - (instancetype)initWithBaseURL:(NSURL *)baseUrl

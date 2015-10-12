@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol PMApiClient;
 
 @interface PMCitiesListVC : UIViewController
-@property (nonatomic, assign) NSUInteger test;
+@property (nonatomic, assign) id<PMApiClient> test;
 @end

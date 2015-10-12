@@ -21,7 +21,7 @@
 {
     return [TyphoonDefinition withClass:[PMCitiesListVC class] configuration:^(TyphoonDefinition *definition)
     {
-        [definition injectProperty:@selector(test) with:@2];
+        [definition injectProperty:@selector(test)];
     }];
 }
 

@@ -12,23 +12,25 @@
 #import "PMApiClientWWO.h"
 #import "PMPlace.h"
 #import "PMWeatherForecast.h"
+#import "PMServicesAssembly.h"
+#import "PMConfigAssembly.h"
 
 @interface PMApiClientWWOTest : XCTestCase
+@property (nonatomic, strong) id<PMApiClient> apiClient;
 @end
 
 @implementation PMApiClientWWOTest
 
-static id<PMApiClient> apiClient = nil;
-
-+ (void)setUp
+- (void)setUp
 {
     [super setUp];
-    apiClient = [[PMApiClientWWO alloc] initWithBaseURL:[NSURL URLWithString:@"http://ya.ru/"]];
+    PMServicesAssembly* assembly = [[PMServicesAssembly assembly] activateWithCollaboratingAssemblies:@[[PMConfigAssembly assembly]]];
+    self.apiClient = [assembly apiClient];
 }
 
 - (void)testPMApiClientWWOExists
 {
-    expect(apiClient).toNot.beNil();
+    expect(self.apiClient).toNot.beNil();
 }
 
 - (void)testSearchPlaceByName
@@ -37,7 +39,7 @@ static id<PMApiClient> apiClient = nil;
     PMPlace *place = [PMPlace new];
     place.name = placeName;
     
-    RACSignal *searchSignal = [apiClient searchPlaceByName:placeName];
+    RACSignal *searchSignal = [self.apiClient searchPlaceByName:placeName];
     
     expect(searchSignal).will.sendValues(@[place]);
 }
@@ -48,7 +50,7 @@ static id<PMApiClient> apiClient = nil;
     place.name = @"Dublin";
     place.query = @"Dublin";
     
-    RACSignal *forecastSignal = [apiClient getWeatherForecastForPlace:place];
+    RACSignal *forecastSignal = [self.apiClient getWeatherForecastForPlace:place];
     
     expect(forecastSignal).will.matchValue(0, ^BOOL(PMWeatherForecast *forecast){
         return [forecast.place isEqual:place];
