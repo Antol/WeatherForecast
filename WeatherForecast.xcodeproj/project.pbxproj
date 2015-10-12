@@ -29,6 +29,10 @@
 		35CDEF411BCBFA42007434E3 /* PMConditionWWOCurrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF401BCBFA42007434E3 /* PMConditionWWOCurrent.m */; settings = {ASSET_TAGS = (); }; };
 		35CDEF4A1BCC0666007434E3 /* PMApiClientWWO.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF491BCC0666007434E3 /* PMApiClientWWO.m */; settings = {ASSET_TAGS = (); }; };
 		35CDEF501BCC1D17007434E3 /* PMApiClientWWOTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF4F1BCC1D17007434E3 /* PMApiClientWWOTest.m */; settings = {ASSET_TAGS = (); }; };
+		35CDEF531BCC4CA1007434E3 /* PMWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF521BCC4CA1007434E3 /* PMWeatherForecast.m */; settings = {ASSET_TAGS = (); }; };
+		35CDEF551BCC4CCE007434E3 /* PMWeatherForecastTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF541BCC4CCE007434E3 /* PMWeatherForecastTest.m */; settings = {ASSET_TAGS = (); }; };
+		35CDEF581BCC4E67007434E3 /* PMWeatherForecastWWO.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF571BCC4E67007434E3 /* PMWeatherForecastWWO.m */; settings = {ASSET_TAGS = (); }; };
+		35CDEF5A1BCC4E8F007434E3 /* PMWeatherForecastWWOTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF591BCC4E8F007434E3 /* PMWeatherForecastWWOTest.m */; settings = {ASSET_TAGS = (); }; };
 		CDA102D38ACF4DDA905A03CC /* libPods-WeatherForecastTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D1B2D9230571B6A6EAE864 /* libPods-WeatherForecastTests.a */; };
 		F525246D83EFC80C7D92CFB9 /* libPods-WeatherForecast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E66575FD03ADAFCEAAAB9814 /* libPods-WeatherForecast.a */; };
 /* End PBXBuildFile section */
@@ -93,6 +97,12 @@
 		35CDEF481BCC0666007434E3 /* PMApiClientWWO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMApiClientWWO.h; sourceTree = "<group>"; };
 		35CDEF491BCC0666007434E3 /* PMApiClientWWO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMApiClientWWO.m; sourceTree = "<group>"; };
 		35CDEF4F1BCC1D17007434E3 /* PMApiClientWWOTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMApiClientWWOTest.m; sourceTree = "<group>"; };
+		35CDEF511BCC4CA1007434E3 /* PMWeatherForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMWeatherForecast.h; sourceTree = "<group>"; };
+		35CDEF521BCC4CA1007434E3 /* PMWeatherForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWeatherForecast.m; sourceTree = "<group>"; };
+		35CDEF541BCC4CCE007434E3 /* PMWeatherForecastTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWeatherForecastTest.m; sourceTree = "<group>"; };
+		35CDEF561BCC4E67007434E3 /* PMWeatherForecastWWO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMWeatherForecastWWO.h; sourceTree = "<group>"; };
+		35CDEF571BCC4E67007434E3 /* PMWeatherForecastWWO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWeatherForecastWWO.m; sourceTree = "<group>"; };
+		35CDEF591BCC4E8F007434E3 /* PMWeatherForecastWWOTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWeatherForecastWWOTest.m; sourceTree = "<group>"; };
 		35D1B2D9230571B6A6EAE864 /* libPods-WeatherForecastTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecastTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D92697F20920ECC6F61EBA6 /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 		E66575FD03ADAFCEAAAB9814 /* libPods-WeatherForecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +142,7 @@
 				354474AB1BCBBC3100B87528 /* Mapping */,
 				354474991BCB9B0F00B87528 /* PMPlaceTest.m */,
 				354474A01BCBA6E100B87528 /* PMConditionTest.m */,
+				35CDEF541BCC4CCE007434E3 /* PMWeatherForecastTest.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -159,6 +170,8 @@
 				354474A91BCBBC1C00B87528 /* PMConditionWWO.m */,
 				35CDEF3F1BCBFA42007434E3 /* PMConditionWWOCurrent.h */,
 				35CDEF401BCBFA42007434E3 /* PMConditionWWOCurrent.m */,
+				35CDEF561BCC4E67007434E3 /* PMWeatherForecastWWO.h */,
+				35CDEF571BCC4E67007434E3 /* PMWeatherForecastWWO.m */,
 			);
 			name = WorldWeatherOnline;
 			sourceTree = "<group>";
@@ -175,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				354474AD1BCBBC5C00B87528 /* PMConditionWWOTest.m */,
+				35CDEF591BCC4E8F007434E3 /* PMWeatherForecastWWOTest.m */,
 			);
 			name = WorldWeatherOnline;
 			sourceTree = "<group>";
@@ -268,6 +282,8 @@
 				354474931BCB900100B87528 /* PMPlace.m */,
 				3544749B1BCBA66300B87528 /* PMCondition.h */,
 				3544749C1BCBA66300B87528 /* PMCondition.m */,
+				35CDEF511BCC4CA1007434E3 /* PMWeatherForecast.h */,
+				35CDEF521BCC4CA1007434E3 /* PMWeatherForecast.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -634,7 +650,9 @@
 				357EA7811BCAAF3F00605442 /* main.m in Sources */,
 				35CDEF411BCBFA42007434E3 /* PMConditionWWOCurrent.m in Sources */,
 				357EA7BD1BCAB78A00605442 /* PMCitiesListVC.m in Sources */,
+				35CDEF531BCC4CA1007434E3 /* PMWeatherForecast.m in Sources */,
 				354474941BCB900100B87528 /* PMPlace.m in Sources */,
+				35CDEF581BCC4E67007434E3 /* PMWeatherForecastWWO.m in Sources */,
 				357EA78D1BCAAF3F00605442 /* WeatherForecast.xcdatamodeld in Sources */,
 				3544749D1BCBA66300B87528 /* PMCondition.m in Sources */,
 			);
@@ -646,6 +664,8 @@
 			files = (
 				35B991811BCBC7E100358608 /* NSValueTransformerTest.m in Sources */,
 				354474A11BCBA6E100B87528 /* PMConditionTest.m in Sources */,
+				35CDEF5A1BCC4E8F007434E3 /* PMWeatherForecastWWOTest.m in Sources */,
+				35CDEF551BCC4CCE007434E3 /* PMWeatherForecastTest.m in Sources */,
 				35CDEF501BCC1D17007434E3 /* PMApiClientWWOTest.m in Sources */,
 				3544749A1BCB9B0F00B87528 /* PMPlaceTest.m in Sources */,
 				354474AE1BCBBC5C00B87528 /* PMConditionWWOTest.m in Sources */,

@@ -40,4 +40,9 @@ static id<PMApiClient> apiClient = nil;
     expect(searchSignal).will.sendValues(@[place]);
 }
 
+- (void)testGetWeatherForecastForPlace
+{
+    
+}
+
 @end

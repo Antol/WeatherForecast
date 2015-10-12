@@ -16,11 +16,6 @@
 
 @implementation PMConditionWWOTest
 
-- (void)setUp
-{
-    [super setUp];
-}
-
 - (void)testMappingEmplyJson
 {
     NSDictionary *responceJson = @{};
