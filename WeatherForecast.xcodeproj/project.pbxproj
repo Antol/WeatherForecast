@@ -989,7 +989,7 @@
 			baseConfigurationReference = 1BE45FCC33B38BF680CE379C /* Pods-WeatherForecastTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = WeatherForecastTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PM.WeatherForecastTests;
@@ -1003,7 +1003,7 @@
 			baseConfigurationReference = 14BF1DAAE8A4E2A13BEEFB40 /* Pods-WeatherForecastTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = WeatherForecastTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PM.WeatherForecastTests;
