@@ -27,6 +27,7 @@
 		35B9917E1BCBC7AA00358608 /* NSValueTransformer+PM.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B9917D1BCBC7AA00358608 /* NSValueTransformer+PM.m */; settings = {ASSET_TAGS = (); }; };
 		35B991811BCBC7E100358608 /* NSValueTransformerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B991801BCBC7E100358608 /* NSValueTransformerTest.m */; settings = {ASSET_TAGS = (); }; };
 		35CDEF411BCBFA42007434E3 /* PMConditionWWOCurrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF401BCBFA42007434E3 /* PMConditionWWOCurrent.m */; settings = {ASSET_TAGS = (); }; };
+		35CDEF4A1BCC0666007434E3 /* PMApiClientWWO.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF491BCC0666007434E3 /* PMApiClientWWO.m */; settings = {ASSET_TAGS = (); }; };
 		CDA102D38ACF4DDA905A03CC /* libPods-WeatherForecastTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D1B2D9230571B6A6EAE864 /* libPods-WeatherForecastTests.a */; };
 		F525246D83EFC80C7D92CFB9 /* libPods-WeatherForecast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E66575FD03ADAFCEAAAB9814 /* libPods-WeatherForecast.a */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,9 @@
 		35B991801BCBC7E100358608 /* NSValueTransformerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSValueTransformerTest.m; sourceTree = "<group>"; };
 		35CDEF3F1BCBFA42007434E3 /* PMConditionWWOCurrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMConditionWWOCurrent.h; sourceTree = "<group>"; };
 		35CDEF401BCBFA42007434E3 /* PMConditionWWOCurrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConditionWWOCurrent.m; sourceTree = "<group>"; };
+		35CDEF461BCC05B4007434E3 /* PMApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMApiClient.h; sourceTree = "<group>"; };
+		35CDEF481BCC0666007434E3 /* PMApiClientWWO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMApiClientWWO.h; sourceTree = "<group>"; };
+		35CDEF491BCC0666007434E3 /* PMApiClientWWO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMApiClientWWO.m; sourceTree = "<group>"; };
 		35D1B2D9230571B6A6EAE864 /* libPods-WeatherForecastTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecastTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D92697F20920ECC6F61EBA6 /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 		E66575FD03ADAFCEAAAB9814 /* libPods-WeatherForecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,6 +290,7 @@
 		357EA7B91BCAB16400605442 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				35CDEF451BCC0580007434E3 /* ApiClientService */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -322,6 +327,24 @@
 				35B991801BCBC7E100358608 /* NSValueTransformerTest.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		35CDEF451BCC0580007434E3 /* ApiClientService */ = {
+			isa = PBXGroup;
+			children = (
+				35CDEF471BCC05EB007434E3 /* WorldWeatherOnline */,
+				35CDEF461BCC05B4007434E3 /* PMApiClient.h */,
+			);
+			name = ApiClientService;
+			sourceTree = "<group>";
+		};
+		35CDEF471BCC05EB007434E3 /* WorldWeatherOnline */ = {
+			isa = PBXGroup;
+			children = (
+				35CDEF481BCC0666007434E3 /* PMApiClientWWO.h */,
+				35CDEF491BCC0666007434E3 /* PMApiClientWWO.m */,
+			);
+			name = WorldWeatherOnline;
 			sourceTree = "<group>";
 		};
 		842C9C3FA6188367B379EAD4 /* Frameworks */ = {
@@ -577,6 +600,7 @@
 				35B9917E1BCBC7AA00358608 /* NSValueTransformer+PM.m in Sources */,
 				35B9917A1BCBC60400358608 /* PMUtils.m in Sources */,
 				357EA7841BCAAF3F00605442 /* PMAppDelegate.m in Sources */,
+				35CDEF4A1BCC0666007434E3 /* PMApiClientWWO.m in Sources */,
 				354474A51BCBBAA800B87528 /* PMBaseModel.m in Sources */,
 				354474AA1BCBBC1C00B87528 /* PMConditionWWO.m in Sources */,
 				357EA7C01BCAB94B00605442 /* PMAppAssembly.m in Sources */,
