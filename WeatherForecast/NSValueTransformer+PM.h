@@ -11,6 +11,6 @@
 @interface NSValueTransformer (PM)
 
 + (instancetype)PM_currentDateHoursTransformer;
-
++ (instancetype)PM_stringToNumberTransformer;
 
 @end

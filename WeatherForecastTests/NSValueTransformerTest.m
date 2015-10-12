@@ -66,5 +66,20 @@ static NSCalendar *calendar = nil;
 }
 
 
+- (void)testStringToNumberTransformerExists
+{
+    NSValueTransformer *transformer = [NSValueTransformer PM_stringToNumberTransformer];
+    expect(transformer).toNot.beNil();
+}
+
+- (void)testStringToNumberTransformation
+{
+    NSValueTransformer *transformer = [NSValueTransformer PM_stringToNumberTransformer];
+    expect([transformer transformedValue:@"2"]).to.equal(@2);
+    expect([transformer transformedValue:@"2.5"]).to.equal(@2.5f);
+    expect([transformer transformedValue:@"-2.5"]).to.equal(@(-2.5f));
+}
 
 @end
+
+

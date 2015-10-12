@@ -35,6 +35,20 @@
     return dateTransformer;
 }
 
-
++ (instancetype)PM_stringToNumberTransformer
+{
+    static NSValueTransformer *transformer = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+        transformer = [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+            return [numberFormatter numberFromString:value];
+        } reverseBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+            return [numberFormatter stringFromNumber:value];
+        }];
+    });
+    return transformer;
+}
 
 @end
