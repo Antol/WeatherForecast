@@ -8,6 +8,7 @@
 
 #import "PMApiClientWWO.h"
 #import <RACAFNetworking.h>
+#import "PMPlace.h"
 
 @implementation PMApiClientWWO
 
@@ -23,7 +24,9 @@
 
 - (RACSignal *)serchPlaceByName:(NSString *)name
 {
-    return [RACSignal error:[NSError errorWithDomain:@"Not implemented!" code:0 userInfo:nil]];
+    PMPlace *place = [PMPlace new];
+    place.name = name;
+    return [[RACSignal return:place] delay:0.5];
 }
 
 - (RACSignal *)getWeatherForecastForPlace:(PMPlace *)place

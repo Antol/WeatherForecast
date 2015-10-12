@@ -10,6 +10,7 @@
 #import <Expecta.h>
 #import <Expecta+ReactiveCocoa/Expecta+ReactiveCocoa.h>
 #import "PMApiClientWWO.h"
+#import "PMPlace.h"
 
 @interface PMApiClientWWOTest : XCTestCase
 @end
@@ -32,8 +33,11 @@ static id<PMApiClient> apiClient = nil;
 - (void)testSearchPlaceByName
 {
     NSString *placeName = @"Narnia";
+    PMPlace *place = [PMPlace new];
+    place.name = placeName;
+    
     RACSignal *searchSignal = [apiClient serchPlaceByName:placeName];
-    expect(searchSignal).to.error();
+    expect(searchSignal).will.completeSending(@[place]);
 }
 
 @end
