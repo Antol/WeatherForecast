@@ -9,6 +9,7 @@
 #import "PMApiClientWWO.h"
 #import <RACAFNetworking.h>
 #import "PMPlace.h"
+#import "PMWeatherForecast.h"
 
 @implementation PMApiClientWWO
 
@@ -31,7 +32,9 @@
 
 - (RACSignal *)getWeatherForecastForPlace:(PMPlace *)place
 {
-    return [RACSignal error:[NSError errorWithDomain:@"Not implemented!" code:0 userInfo:nil]];
+    PMWeatherForecast *forecast = [PMWeatherForecast new];
+    forecast.place = place;
+    return [[RACSignal return:forecast] delay:0.5];
 }
 
 @end

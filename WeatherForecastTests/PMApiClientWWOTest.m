@@ -11,6 +11,7 @@
 #import <LLReactiveMatchers.h>
 #import "PMApiClientWWO.h"
 #import "PMPlace.h"
+#import "PMWeatherForecast.h"
 
 @interface PMApiClientWWOTest : XCTestCase
 @end
@@ -37,12 +38,23 @@ static id<PMApiClient> apiClient = nil;
     place.name = placeName;
     
     RACSignal *searchSignal = [apiClient searchPlaceByName:placeName];
+    
     expect(searchSignal).will.sendValues(@[place]);
 }
 
 - (void)testGetWeatherForecastForPlace
 {
+    PMPlace *place = [PMPlace new];
+    place.name = @"Dublin";
+    place.query = @"Dublin";
     
+    RACSignal *forecastSignal = [apiClient getWeatherForecastForPlace:place];
+    
+    expect(forecastSignal).will.matchValue(0, ^BOOL(PMWeatherForecast *forecast){
+        return [forecast.place isEqual:place];
+    });
 }
 
 @end
+
+
