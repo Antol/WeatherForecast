@@ -6,10 +6,9 @@
 //  Copyright © 2015 Perpetuum Mobile lab. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "PMBaseModel.h"
 
-@interface PMCondition : NSObject
+@interface PMCondition : PMBaseModel
 @property (nonatomic, strong) NSDate *date;
 
 @property (nonatomic, strong) NSNumber *temperatureC;

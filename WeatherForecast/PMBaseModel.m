@@ -1,5 +1,5 @@
 //
-//  PMPlace.h
+//  PMBaseModel.m
 //  WeatherForecast
 //
 //  Created by Antol Peshkov on 12.10.15.
@@ -7,9 +7,7 @@
 //
 
 #import "PMBaseModel.h"
-@class PMCondition;
 
-@interface PMPlace : PMBaseModel
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *query;
+@implementation PMBaseModel
+
 @end
