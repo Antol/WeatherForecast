@@ -1,5 +1,32 @@
 PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking-RACExtensions (0.1.8):
+    - AFNetworking (~> 2.5.3)
+    - ReactiveCocoa (~> 2.0)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - Expecta (1.0.3)
+  - Expecta+ReactiveCocoa (0.2.0):
+    - Expecta
+    - ReactiveCocoa
   - Mantle (2.0.5):
     - Mantle/extobjc (= 2.0.5)
   - Mantle/extobjc (2.0.5)
@@ -15,13 +42,22 @@ PODS:
   - Typhoon/no-arc (3.3.3)
 
 DEPENDENCIES:
+  - AFNetworking-RACExtensions (~> 0.1.8)
   - Expecta (~> 1.0.3)
+  - Expecta+ReactiveCocoa (from `https://raw.github.com/Antol/Expecta-ReactiveCocoa/master/Expecta+ReactiveCocoa.podspec`)
   - Mantle (~> 2.0.5)
   - ReactiveCocoa (~> 2.5)
   - Typhoon (~> 3.3.3)
 
+EXTERNAL SOURCES:
+  Expecta+ReactiveCocoa:
+    :podspec: https://raw.github.com/Antol/Expecta-ReactiveCocoa/master/Expecta+ReactiveCocoa.podspec
+
 SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AFNetworking-RACExtensions: a043c6b492fa892395ceb9d20bc4c94e96e08a57
   Expecta: 9d1bff6c8b0eeee73a166a2ee898892478927a15
+  Expecta+ReactiveCocoa: 64de073de5fbec93062c6e6477c32b7d45f6d3cf
   Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Typhoon: df3d23f59dccc8eda3e6535e58afd160ae60567e

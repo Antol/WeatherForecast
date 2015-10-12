@@ -7,8 +7,19 @@
 //
 
 #import "PMApiClientWWO.h"
+#import <RACAFNetworking.h>
 
 @implementation PMApiClientWWO
+
+- (instancetype)initWithBaseURL:(NSURL *)baseUrl
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 
 - (RACSignal *)serchPlaceByName:(NSString *)name
 {

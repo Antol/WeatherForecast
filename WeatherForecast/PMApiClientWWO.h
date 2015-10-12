@@ -11,4 +11,6 @@
 
 @interface PMApiClientWWO : NSObject <PMApiClient>
 
+- (instancetype)initWithBaseURL:(NSURL *)baseUrl;
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
+@class RACSignal;
 @class PMPlace;
 
 @protocol PMApiClient <NSObject>
