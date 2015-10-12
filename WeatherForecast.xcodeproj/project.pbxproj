@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		354474941BCB900100B87528 /* PMPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 354474931BCB900100B87528 /* PMPlace.m */; settings = {ASSET_TAGS = (); }; };
 		3544749A1BCB9B0F00B87528 /* PMPlaceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 354474991BCB9B0F00B87528 /* PMPlaceTest.m */; settings = {ASSET_TAGS = (); }; };
+		3544749D1BCBA66300B87528 /* PMCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3544749C1BCBA66300B87528 /* PMCondition.m */; settings = {ASSET_TAGS = (); }; };
+		354474A11BCBA6E100B87528 /* PMConditionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 354474A01BCBA6E100B87528 /* PMConditionTest.m */; settings = {ASSET_TAGS = (); }; };
 		357EA7811BCAAF3F00605442 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 357EA7801BCAAF3F00605442 /* main.m */; };
 		357EA7841BCAAF3F00605442 /* PMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 357EA7831BCAAF3F00605442 /* PMAppDelegate.m */; };
 		357EA78A1BCAAF3F00605442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 357EA7881BCAAF3F00605442 /* Main.storyboard */; };
@@ -45,6 +47,9 @@
 		354474921BCB900100B87528 /* PMPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMPlace.h; sourceTree = "<group>"; };
 		354474931BCB900100B87528 /* PMPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMPlace.m; sourceTree = "<group>"; };
 		354474991BCB9B0F00B87528 /* PMPlaceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMPlaceTest.m; sourceTree = "<group>"; };
+		3544749B1BCBA66300B87528 /* PMCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCondition.h; sourceTree = "<group>"; };
+		3544749C1BCBA66300B87528 /* PMCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCondition.m; sourceTree = "<group>"; };
+		354474A01BCBA6E100B87528 /* PMConditionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConditionTest.m; sourceTree = "<group>"; };
 		357EA77C1BCAAF3F00605442 /* WeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		357EA7801BCAAF3F00605442 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		357EA7821BCAAF3F00605442 /* PMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMAppDelegate.h; sourceTree = "<group>"; };
@@ -100,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				354474991BCB9B0F00B87528 /* PMPlaceTest.m */,
+				354474A01BCBA6E100B87528 /* PMConditionTest.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -192,6 +198,8 @@
 				354474911BCAF5F100B87528 /* Storage */,
 				354474921BCB900100B87528 /* PMPlace.h */,
 				354474931BCB900100B87528 /* PMPlace.m */,
+				3544749B1BCBA66300B87528 /* PMCondition.h */,
+				3544749C1BCBA66300B87528 /* PMCondition.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -485,6 +493,7 @@
 				357EA7BD1BCAB78A00605442 /* PMCitiesListVC.m in Sources */,
 				354474941BCB900100B87528 /* PMPlace.m in Sources */,
 				357EA78D1BCAAF3F00605442 /* WeatherForecast.xcdatamodeld in Sources */,
+				3544749D1BCBA66300B87528 /* PMCondition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				354474A11BCBA6E100B87528 /* PMConditionTest.m in Sources */,
 				3544749A1BCB9B0F00B87528 /* PMPlaceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

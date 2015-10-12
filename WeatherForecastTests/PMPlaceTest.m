@@ -23,7 +23,7 @@
     self.place = [PMPlace new];
 }
 
-- (void)testPlaceExist
+- (void)testPlaceExists
 {
     expect(self.place).toNot.beNil;
 }
