@@ -10,6 +10,8 @@
 #import "PMApiClient.h"
 #import "PMApiClientWWO.h"
 #import <RACAFNetworking.h>
+#import "PMStorageCD.h"
+#import "PMStorageCDConfiguration.h"
 
 @implementation PMServicesAssembly
 
@@ -35,4 +37,24 @@
     }];
 }
 
+- (id<PMStorage>)storage
+{
+    return [TyphoonDefinition withClass:[PMStorageCD class] configuration:^(TyphoonDefinition *definition)
+    {
+        [definition useInitializer:@selector(initWithConfig:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[self storageConfig]];
+        }];
+    }];
+}
+
+- (PMStorageCDConfiguration *)storageConfig
+{
+    return [TyphoonDefinition withClass:[PMStorageCDConfiguration class] configuration:^(TyphoonDefinition *definition)
+    {
+        [definition injectProperty:@selector(type) with:@(PMStorageCDTypeSqlite)];
+    }];
+}
+
 @end
+
+

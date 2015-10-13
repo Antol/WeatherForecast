@@ -34,6 +34,7 @@
 		357958971BCD0B200010C668 /* PMPlaceEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 357958941BCD0B200010C668 /* PMPlaceEntity+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		357958981BCD0B200010C668 /* PMPlaceEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 357958961BCD0B200010C668 /* PMPlaceEntity.m */; settings = {ASSET_TAGS = (); }; };
 		3579589C1BCD0B860010C668 /* PMPlace+MTLManagedObjectSerializing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3579589B1BCD0B860010C668 /* PMPlace+MTLManagedObjectSerializing.m */; settings = {ASSET_TAGS = (); }; };
+		357958A21BCD0FF20010C668 /* PMStorageCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 357958A11BCD0FF20010C668 /* PMStorageCD.m */; settings = {ASSET_TAGS = (); }; };
 		357EA7811BCAAF3F00605442 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 357EA7801BCAAF3F00605442 /* main.m */; };
 		357EA7841BCAAF3F00605442 /* PMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 357EA7831BCAAF3F00605442 /* PMAppDelegate.m */; };
 		357EA78A1BCAAF3F00605442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 357EA7881BCAAF3F00605442 /* Main.storyboard */; };
@@ -57,6 +58,8 @@
 		35CDEF5F1BCC5634007434E3 /* PMPlaceWWOTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF5E1BCC5634007434E3 /* PMPlaceWWOTest.m */; settings = {ASSET_TAGS = (); }; };
 		35CDEF621BCC66F0007434E3 /* PMServicesAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CDEF611BCC66F0007434E3 /* PMServicesAssembly.m */; settings = {ASSET_TAGS = (); }; };
 		35CDEF641BCC685E007434E3 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35CDEF631BCC685E007434E3 /* Configuration.plist */; settings = {ASSET_TAGS = (); }; };
+		35E1EA571BCD11A700AFDB3A /* PMStorageCDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E1EA561BCD11A700AFDB3A /* PMStorageCDTest.m */; settings = {ASSET_TAGS = (); }; };
+		35E1EA5A1BCD144600AFDB3A /* PMStorageCDConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E1EA591BCD144600AFDB3A /* PMStorageCDConfiguration.m */; settings = {ASSET_TAGS = (); }; };
 		CDA102D38ACF4DDA905A03CC /* libPods-WeatherForecastTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D1B2D9230571B6A6EAE864 /* libPods-WeatherForecastTests.a */; };
 		F525246D83EFC80C7D92CFB9 /* libPods-WeatherForecast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E66575FD03ADAFCEAAAB9814 /* libPods-WeatherForecast.a */; };
 /* End PBXBuildFile section */
@@ -135,6 +138,9 @@
 		357958961BCD0B200010C668 /* PMPlaceEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMPlaceEntity.m; sourceTree = "<group>"; };
 		3579589A1BCD0B860010C668 /* PMPlace+MTLManagedObjectSerializing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PMPlace+MTLManagedObjectSerializing.h"; sourceTree = "<group>"; };
 		3579589B1BCD0B860010C668 /* PMPlace+MTLManagedObjectSerializing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PMPlace+MTLManagedObjectSerializing.m"; sourceTree = "<group>"; };
+		3579589E1BCD0F940010C668 /* PMStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMStorage.h; sourceTree = "<group>"; };
+		357958A01BCD0FF20010C668 /* PMStorageCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMStorageCD.h; sourceTree = "<group>"; };
+		357958A11BCD0FF20010C668 /* PMStorageCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMStorageCD.m; sourceTree = "<group>"; };
 		357EA77C1BCAAF3F00605442 /* WeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		357EA7801BCAAF3F00605442 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		357EA7821BCAAF3F00605442 /* PMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMAppDelegate.h; sourceTree = "<group>"; };
@@ -177,6 +183,9 @@
 		35CDEF611BCC66F0007434E3 /* PMServicesAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMServicesAssembly.m; sourceTree = "<group>"; };
 		35CDEF631BCC685E007434E3 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		35D1B2D9230571B6A6EAE864 /* libPods-WeatherForecastTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecastTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35E1EA561BCD11A700AFDB3A /* PMStorageCDTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMStorageCDTest.m; sourceTree = "<group>"; };
+		35E1EA581BCD144600AFDB3A /* PMStorageCDConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMStorageCDConfiguration.h; sourceTree = "<group>"; };
+		35E1EA591BCD144600AFDB3A /* PMStorageCDConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMStorageCDConfiguration.m; sourceTree = "<group>"; };
 		4D92697F20920ECC6F61EBA6 /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 		E66575FD03ADAFCEAAAB9814 /* libPods-WeatherForecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58418DBA6BC467DDC00C4A7 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
@@ -349,6 +358,26 @@
 			name = PMPlace;
 			sourceTree = "<group>";
 		};
+		3579589D1BCD0F720010C668 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				3579589F1BCD0FD30010C668 /* CoreDataStorage */,
+				3579589E1BCD0F940010C668 /* PMStorage.h */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		3579589F1BCD0FD30010C668 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				357958A01BCD0FF20010C668 /* PMStorageCD.h */,
+				357958A11BCD0FF20010C668 /* PMStorageCD.m */,
+				35E1EA581BCD144600AFDB3A /* PMStorageCDConfiguration.h */,
+				35E1EA591BCD144600AFDB3A /* PMStorageCDConfiguration.m */,
+			);
+			name = CoreDataStorage;
+			sourceTree = "<group>";
+		};
 		357EA7731BCAAF3F00605442 = {
 			isa = PBXGroup;
 			children = (
@@ -422,13 +451,13 @@
 		357EA7B51BCAB11D00605442 /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
+				35CDEF631BCC685E007434E3 /* Configuration.plist */,
+				352C28881BCC73710098FDB8 /* PMConfigAssembly.h */,
+				352C28891BCC73710098FDB8 /* PMConfigAssembly.m */,
 				357EA7BE1BCAB94B00605442 /* PMAppAssembly.h */,
 				357EA7BF1BCAB94B00605442 /* PMAppAssembly.m */,
 				35CDEF601BCC66F0007434E3 /* PMServicesAssembly.h */,
 				35CDEF611BCC66F0007434E3 /* PMServicesAssembly.m */,
-				35CDEF631BCC685E007434E3 /* Configuration.plist */,
-				352C28881BCC73710098FDB8 /* PMConfigAssembly.h */,
-				352C28891BCC73710098FDB8 /* PMConfigAssembly.m */,
 			);
 			name = Assemblies;
 			sourceTree = "<group>";
@@ -471,7 +500,8 @@
 		357EA7B91BCAB16400605442 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				35CDEF451BCC0580007434E3 /* ApiClientService */,
+				3579589D1BCD0F720010C668 /* Storage */,
+				35CDEF451BCC0580007434E3 /* ApiClient */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -510,13 +540,13 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
-		35CDEF451BCC0580007434E3 /* ApiClientService */ = {
+		35CDEF451BCC0580007434E3 /* ApiClient */ = {
 			isa = PBXGroup;
 			children = (
 				35CDEF471BCC05EB007434E3 /* WorldWeatherOnline */,
 				35CDEF461BCC05B4007434E3 /* PMApiClient.h */,
 			);
-			name = ApiClientService;
+			name = ApiClient;
 			sourceTree = "<group>";
 		};
 		35CDEF471BCC05EB007434E3 /* WorldWeatherOnline */ = {
@@ -531,6 +561,7 @@
 		35CDEF4B1BCC1CC2007434E3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				35E1EA541BCD117F00AFDB3A /* Storage */,
 				35CDEF4C1BCC1CE0007434E3 /* ApiClientService */,
 			);
 			name = Services;
@@ -550,6 +581,22 @@
 				35CDEF4F1BCC1D17007434E3 /* PMApiClientWWOTest.m */,
 			);
 			name = WorldWeatherOnline;
+			sourceTree = "<group>";
+		};
+		35E1EA541BCD117F00AFDB3A /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				35E1EA551BCD118A00AFDB3A /* CoreDataStorage */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		35E1EA551BCD118A00AFDB3A /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				35E1EA561BCD11A700AFDB3A /* PMStorageCDTest.m */,
+			);
+			name = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 		842C9C3FA6188367B379EAD4 /* Frameworks */ = {
@@ -805,6 +852,7 @@
 			files = (
 				357958971BCD0B200010C668 /* PMPlaceEntity+CoreDataProperties.m in Sources */,
 				352C288A1BCC73710098FDB8 /* PMConfigAssembly.m in Sources */,
+				35E1EA5A1BCD144600AFDB3A /* PMStorageCDConfiguration.m in Sources */,
 				35B9917E1BCBC7AA00358608 /* NSValueTransformer+PM.m in Sources */,
 				35B9917A1BCBC60400358608 /* PMUtils.m in Sources */,
 				357EA7841BCAAF3F00605442 /* PMAppDelegate.m in Sources */,
@@ -822,6 +870,7 @@
 				35CDEF531BCC4CA1007434E3 /* PMWeatherForecast.m in Sources */,
 				354474941BCB900100B87528 /* PMPlace.m in Sources */,
 				35CDEF581BCC4E67007434E3 /* PMWeatherForecastWWO.m in Sources */,
+				357958A21BCD0FF20010C668 /* PMStorageCD.m in Sources */,
 				357EA78D1BCAAF3F00605442 /* WeatherForecast.xcdatamodeld in Sources */,
 				3544749D1BCBA66300B87528 /* PMCondition.m in Sources */,
 			);
@@ -831,6 +880,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E1EA571BCD11A700AFDB3A /* PMStorageCDTest.m in Sources */,
 				35B991811BCBC7E100358608 /* NSValueTransformerTest.m in Sources */,
 				354474A11BCBA6E100B87528 /* PMConditionTest.m in Sources */,
 				352C28B61BCC75850098FDB8 /* LLReactiveMatchersMessageBuilder.m in Sources */,
