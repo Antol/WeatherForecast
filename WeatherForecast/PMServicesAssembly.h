@@ -8,9 +8,11 @@
 
 #import <Typhoon/Typhoon.h>
 @protocol PMApiClient;
+@class AFHTTPSessionManager;
 
 @interface PMServicesAssembly : TyphoonAssembly
 
 - (id<PMApiClient>)apiClient;
+- (AFHTTPSessionManager *)httpSessionManager;
 
 @end

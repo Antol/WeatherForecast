@@ -7,6 +7,7 @@
 //
 
 #import "PMCitiesListVC.h"
+#import "PMApiClient.h"
 
 @interface PMCitiesListVC ()
 
@@ -18,6 +19,11 @@
 {
     [super viewDidLoad];
     NSLog(@"================> %@", self.test);
+    [[self.test searchPlaceByName:@"temp"] subscribeNext:^(id x) {
+        NSLog(@"================> %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"================> %@", error);
+    }];
 }
 
 @end

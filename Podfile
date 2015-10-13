@@ -10,6 +10,7 @@ end
 
 target 'WeatherForecastTests' do
 pod 'Expecta', '~> 1.0.3'
+pod 'OCMock', '~> 3.2'
 end
 
 target 'WeatherForecastUITests' do

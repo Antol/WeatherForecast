@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "PMApiClient.h"
+@class AFHTTPSessionManager;
 
 @interface PMApiClientWWO : NSObject <PMApiClient>
 
-- (instancetype)initWithBaseURL:(NSURL *)baseUrl;
+- (instancetype)initWithSessionManager:(AFHTTPSessionManager *)sessionManager apiKey:(NSString *)apiKey;
 
 @end
