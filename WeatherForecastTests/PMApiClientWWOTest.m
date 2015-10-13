@@ -33,7 +33,12 @@
     [patcher patchDefinitionWithSelector:@selector(httpSessionManager) withObject:^id{
         id sessionManagerMock = OCMClassMock([AFHTTPSessionManager class]);
         
-        RACSignal *weatherApiResponseSignal = [[RACSignal return:[self weatherForecastJson]] delay:0.5];
+        RACTuple *searchTuple = [RACTuple tupleWithObjectsFromArray:@[[self placesJson], @"temp"]];
+        RACSignal *searchApiResponseSignal = [[RACSignal return:searchTuple] delay:0.5];
+        OCMStub([sessionManagerMock rac_GET:@"search.ashx" parameters:[OCMArg any]]).andReturn(searchApiResponseSignal);
+        
+        RACTuple *weatherTuple = [RACTuple tupleWithObjectsFromArray:@[[self weatherForecastJson], @"temp"]];
+        RACSignal *weatherApiResponseSignal = [[RACSignal return:weatherTuple] delay:0.5];
         OCMStub([sessionManagerMock rac_GET:@"weather.ashx" parameters:[OCMArg any]]).andReturn(weatherApiResponseSignal);
         
         return sessionManagerMock;
@@ -48,16 +53,21 @@
     expect(self.apiClient).toNot.beNil();
 }
 
-//- (void)testSearchPlaceByName
-//{
-//    NSString *placeName = @"Narnia";
-//    PMPlace *place = [PMPlace new];
-//    place.name = placeName;
-//    
-//    RACSignal *searchSignal = [self.apiClient searchPlaceByName:placeName];
-//    
-//    expect(searchSignal).will.sendValues(@[place]);
-//}
+- (void)testSearchPlaceByName
+{
+    NSString *placeName = @"Narnia";
+    PMPlace *place = [PMPlace new];
+    place.name = placeName;
+    
+    RACSignal *searchSignal = [self.apiClient searchPlaceByName:placeName];
+    
+    expect(searchSignal).will.matchValue(0, ^BOOL(NSArray *places){
+        BOOL isMatch = (places.count == 3);
+        PMPlace *place = places.firstObject;
+        isMatch = isMatch && [place.name isEqualToString:placeName];
+        return isMatch;
+    });
+}
 
 - (void)testGetWeatherForecastForPlace
 {
@@ -234,6 +244,91 @@
                     @"winddirection": @"NE",
                     @"windspeedKmph": @"21",
                     @"windspeedMiles": @"13"
+                }
+            ]
+        }
+    };
+}
+
+- (NSDictionary *)placesJson
+{
+    return @{
+        @"search_api": @{
+            @"result": @[
+                @{
+                    @"areaName": @[
+                        @{
+                            @"value": @"Narnia"
+                        }
+                    ],
+                    @"country": @[
+                        @{
+                            @"value": @"Ireland"
+                        }
+                    ],
+                    @"latitude": @"53.333",
+                    @"longitude": @"-6.249",
+                    @"population": @"1024027",
+                    @"region": @[
+                        @{
+                            @"value": @"Dublin"
+                        }
+                    ],
+                    @"weatherUrl": @[
+                        @{
+                            @"value": @"http://www.worldweatheronline.com/v2/weather.aspx?q=53.3331,-6.2489"
+                        }
+                    ]
+                },
+                @{
+                    @"areaName": @[
+                        @{
+                            @"value": @"Dublin"
+                        }
+                    ],
+                    @"country": @[
+                        @{
+                            @"value": @"United States of America"
+                        }
+                    ],
+                    @"latitude": @"37.702",
+                    @"longitude": @"-121.935",
+                    @"population": @"38805",
+                    @"region": @[
+                        @{
+                            @"value": @"California"
+                        }
+                    ],
+                    @"weatherUrl": @[
+                        @{
+                            @"value": @"http://www.worldweatheronline.com/v2/weather.aspx?q=37.7022,-121.9347"
+                        }
+                    ]
+                },
+                @{
+                    @"areaName": @[
+                        @{
+                            @"value": @"Dublin"
+                        }
+                    ],
+                    @"country": @[
+                        @{
+                            @"value": @"United States of America"
+                        }
+                    ],
+                    @"latitude": @"40.099",
+                    @"longitude": @"-83.114",
+                    @"population": @"35237",
+                    @"region": @[
+                        @{
+                            @"value": @"Ohio"
+                        }
+                    ],
+                    @"weatherUrl": @[
+                        @{
+                            @"value": @"http://www.worldweatheronline.com/v2/weather.aspx?q=40.0992,-83.1142"
+                        }
+                    ]
                 }
             ]
         }

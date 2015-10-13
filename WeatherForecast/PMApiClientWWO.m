@@ -11,6 +11,7 @@
 #import "PMPlace.h"
 #import "PMWeatherForecast.h"
 #import "PMWeatherForecastWWO.h"
+#import "PMPlaceWWO.h"
 
 @interface PMApiClientWWO ()
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
@@ -34,8 +35,13 @@
     NSMutableDictionary *params = [[self baseParameters] mutableCopy];
     [params setValue:name forKey:@"q"];
     
-    RACSignal *request = [self.sessionManager rac_GET:@"search.ashx" parameters:params];
-    return [self mappedResponseRequestWithRequest:request responseClass:[PMPlace class]];
+    RACSignal *request = [[self.sessionManager
+        rac_GET:@"search.ashx" parameters:params]
+        map:^id(RACTuple *x) {
+            NSDictionary *response = x.first;
+            return [response valueForKeyPath:@"search_api.result"];
+        }];
+    return [self mappedResponseRequestWithRequest:request responseClass:[PMPlaceWWO class]];
 }
 
 - (RACSignal *)getWeatherForecastForPlace:(PMPlace *)place
@@ -44,7 +50,11 @@
     [params setValue:place.query forKey:@"q"];
     [params setValue:@5 forKey:@"num_of_days"];
     
-    RACSignal *request = [self.sessionManager rac_GET:@"weather.ashx" parameters:params];
+    RACSignal *request = [[self.sessionManager
+        rac_GET:@"weather.ashx" parameters:params]
+        map:^id(RACTuple *x) {
+            return x.first;
+        }];
     
     return [[self
         mappedResponseRequestWithRequest:request responseClass:[PMWeatherForecastWWO class]]
@@ -71,7 +81,7 @@
     @weakify(self);
     return [[[request
         deliverOn:[RACScheduler scheduler]]
-        flattenMap:^RACStream *(RACTuple *response) {
+        flattenMap:^RACStream *(NSDictionary *response) {
             @strongify(self);
             NSError *error = nil;
             id object = [self mapResponse:response toClass:responseClass error:&error];
