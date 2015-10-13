@@ -70,6 +70,7 @@
     expect(forecastSignal).will.matchValue(0, ^BOOL(PMWeatherForecast *forecast){
         BOOL isMatch = YES;
         isMatch = isMatch && (forecast.currentCondition != nil) && (forecast.dailyForecastConditions.count == 5);
+        isMatch = isMatch && [forecast.place isEqual:place];
         return isMatch;
     });
 }

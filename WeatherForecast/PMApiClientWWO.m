@@ -45,7 +45,13 @@
     [params setValue:@5 forKey:@"num_of_days"];
     
     RACSignal *request = [self.sessionManager rac_GET:@"weather.ashx" parameters:params];
-    return [self mappedResponseRequestWithRequest:request responseClass:[PMWeatherForecastWWO class]];
+    
+    return [[self
+        mappedResponseRequestWithRequest:request responseClass:[PMWeatherForecastWWO class]]
+        map:^id(PMWeatherForecast *forecast) {
+            forecast.place = place;
+            return forecast;
+        }];
 }
 
 #pragma mark - Private
