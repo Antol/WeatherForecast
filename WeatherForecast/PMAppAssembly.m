@@ -24,8 +24,7 @@
 {
     return [TyphoonDefinition withClass:[PMPlacesListVC class] configuration:^(TyphoonDefinition *definition)
     {
-        [definition injectProperty:@selector(apiClient)];
-        [definition injectProperty:@selector(storage)];
+        [definition injectProperty:@selector(forecastManager)];
     }];
 }
 

@@ -8,8 +8,9 @@
 
 #import <Typhoon/Typhoon.h>
 @protocol PMApiClient;
-@class AFHTTPSessionManager;
 @protocol PMStorage;
+@protocol PMWeatherForecastManager;
+@class AFHTTPSessionManager;
 @class PMStorageCDConfiguration;
 
 @interface PMServicesAssembly : TyphoonAssembly
@@ -19,5 +20,7 @@
 
 - (id<PMStorage>)storage;
 - (PMStorageCDConfiguration *)storageConfig;
+
+- (id<PMWeatherForecastManager>)forecastManager;
 
 @end

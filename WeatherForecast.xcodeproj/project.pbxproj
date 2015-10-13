@@ -49,6 +49,8 @@
 		3582AD611BCD356A00611136 /* PMSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD601BCD356A00611136 /* PMSettingsVC.m */; settings = {ASSET_TAGS = (); }; };
 		3582AD641BCD35FB00611136 /* PMPlaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD631BCD35FB00611136 /* PMPlaceVC.m */; settings = {ASSET_TAGS = (); }; };
 		3582AD671BCD363000611136 /* PMSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD661BCD363000611136 /* PMSearchVC.m */; settings = {ASSET_TAGS = (); }; };
+		3582AD6D1BCD37B200611136 /* PMWeatherForecastManagerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD6C1BCD37B200611136 /* PMWeatherForecastManagerImpl.m */; settings = {ASSET_TAGS = (); }; };
+		3582AD701BCD3ACE00611136 /* PMWeatherForecastManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD6F1BCD3ACE00611136 /* PMWeatherForecastManagerTest.m */; settings = {ASSET_TAGS = (); }; };
 		35B9917A1BCBC60400358608 /* PMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B991791BCBC60400358608 /* PMUtils.m */; settings = {ASSET_TAGS = (); }; };
 		35B9917E1BCBC7AA00358608 /* NSValueTransformer+PM.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B9917D1BCBC7AA00358608 /* NSValueTransformer+PM.m */; settings = {ASSET_TAGS = (); }; };
 		35B991811BCBC7E100358608 /* NSValueTransformerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B991801BCBC7E100358608 /* NSValueTransformerTest.m */; settings = {ASSET_TAGS = (); }; };
@@ -175,6 +177,10 @@
 		3582AD631BCD35FB00611136 /* PMPlaceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMPlaceVC.m; sourceTree = "<group>"; };
 		3582AD651BCD363000611136 /* PMSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSearchVC.h; sourceTree = "<group>"; };
 		3582AD661BCD363000611136 /* PMSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSearchVC.m; sourceTree = "<group>"; };
+		3582AD691BCD378300611136 /* PMWeatherForecastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMWeatherForecastManager.h; sourceTree = "<group>"; };
+		3582AD6B1BCD37B200611136 /* PMWeatherForecastManagerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMWeatherForecastManagerImpl.h; sourceTree = "<group>"; };
+		3582AD6C1BCD37B200611136 /* PMWeatherForecastManagerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWeatherForecastManagerImpl.m; sourceTree = "<group>"; };
+		3582AD6F1BCD3ACE00611136 /* PMWeatherForecastManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWeatherForecastManagerTest.m; sourceTree = "<group>"; };
 		35B991781BCBC60400358608 /* PMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMUtils.h; sourceTree = "<group>"; };
 		35B991791BCBC60400358608 /* PMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMUtils.m; sourceTree = "<group>"; };
 		35B9917C1BCBC7AA00358608 /* NSValueTransformer+PM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+PM.h"; sourceTree = "<group>"; };
@@ -525,6 +531,7 @@
 		357EA7B91BCAB16400605442 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3582AD681BCD374900611136 /* WeatherForecastManager */,
 				35E1EA5B1BCD1B8500AFDB3A /* AppConfigurator */,
 				3579589D1BCD0F720010C668 /* Storage */,
 				35CDEF451BCC0580007434E3 /* ApiClient */,
@@ -547,6 +554,32 @@
 				3582AD5A1BCD2FE500611136 /* PMPlaceTableViewCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		3582AD681BCD374900611136 /* WeatherForecastManager */ = {
+			isa = PBXGroup;
+			children = (
+				3582AD6A1BCD378A00611136 /* WeatherForecastManagerImpl */,
+				3582AD691BCD378300611136 /* PMWeatherForecastManager.h */,
+			);
+			name = WeatherForecastManager;
+			sourceTree = "<group>";
+		};
+		3582AD6A1BCD378A00611136 /* WeatherForecastManagerImpl */ = {
+			isa = PBXGroup;
+			children = (
+				3582AD6B1BCD37B200611136 /* PMWeatherForecastManagerImpl.h */,
+				3582AD6C1BCD37B200611136 /* PMWeatherForecastManagerImpl.m */,
+			);
+			name = WeatherForecastManagerImpl;
+			sourceTree = "<group>";
+		};
+		3582AD6E1BCD3AB200611136 /* WeatherForecastManager */ = {
+			isa = PBXGroup;
+			children = (
+				3582AD6F1BCD3ACE00611136 /* PMWeatherForecastManagerTest.m */,
+			);
+			name = WeatherForecastManager;
 			sourceTree = "<group>";
 		};
 		35B991771BCBC5CC00358608 /* Helpers */ = {
@@ -598,6 +631,7 @@
 		35CDEF4B1BCC1CC2007434E3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3582AD6E1BCD3AB200611136 /* WeatherForecastManager */,
 				35E1EA541BCD117F00AFDB3A /* Storage */,
 				35CDEF4C1BCC1CE0007434E3 /* ApiClientService */,
 			);
@@ -916,6 +950,7 @@
 				357EA7811BCAAF3F00605442 /* main.m in Sources */,
 				35CDEF411BCBFA42007434E3 /* PMConditionWWOCurrent.m in Sources */,
 				357EA7BD1BCAB78A00605442 /* PMPlacesListVC.m in Sources */,
+				3582AD6D1BCD37B200611136 /* PMWeatherForecastManagerImpl.m in Sources */,
 				35CDEF531BCC4CA1007434E3 /* PMWeatherForecast.m in Sources */,
 				354474941BCB900100B87528 /* PMPlace.m in Sources */,
 				35CDEF581BCC4E67007434E3 /* PMWeatherForecastWWO.m in Sources */,
@@ -936,6 +971,7 @@
 				35B991811BCBC7E100358608 /* NSValueTransformerTest.m in Sources */,
 				354474A11BCBA6E100B87528 /* PMConditionTest.m in Sources */,
 				352C28B61BCC75850098FDB8 /* LLReactiveMatchersMessageBuilder.m in Sources */,
+				3582AD701BCD3ACE00611136 /* PMWeatherForecastManagerTest.m in Sources */,
 				35CDEF5F1BCC5634007434E3 /* PMPlaceWWOTest.m in Sources */,
 				352C28B31BCC75850098FDB8 /* LLSignalTestRecorder.m in Sources */,
 				352C28B81BCC75850098FDB8 /* EXPMatchers+complete.m in Sources */,

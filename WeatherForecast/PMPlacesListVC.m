@@ -24,16 +24,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    @weakify(self);
-    
-    [[[self.storage
-        getAllObjectsForClass:[PMPlace class]]
-        deliverOn:[RACScheduler mainThreadScheduler] ]
-        subscribeNext:^(id x) {
-            @strongify(self);
-            self.places = x;
-            [self.tableView reloadData];
-        }];
 }
 
 #pragma mark - UITableView

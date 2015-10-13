@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@protocol PMApiClient;
-@protocol PMStorage;
+@protocol PMWeatherForecastManager;
 
 @interface PMPlacesListVC : UIViewController
-@property (nonatomic, assign) id<PMApiClient> apiClient;
-@property (nonatomic, strong) id<PMStorage> storage;
+@property (nonatomic, strong) id<PMWeatherForecastManager> forecastManager;
 @end

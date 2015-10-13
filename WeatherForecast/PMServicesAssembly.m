@@ -13,6 +13,7 @@
 #import "PMStorageCD.h"
 #import "PMStorageCDConfiguration.h"
 #import "PMAppConfigurator.h"
+#import "PMWeatherForecastManagerImpl.h"
 
 @implementation PMServicesAssembly
 
@@ -61,6 +62,17 @@
     return [TyphoonDefinition withClass:[PMAppConfigurator class] configuration:^(TyphoonDefinition *definition)
     {
         [definition injectProperty:@selector(storage)];
+    }];
+}
+
+- (id<PMWeatherForecastManager>)forecastManager
+{
+    return [TyphoonDefinition withClass:[PMWeatherForecastManagerImpl class] configuration:^(TyphoonDefinition *definition)
+    {
+        [definition useInitializer:@selector(initWithSorage:apiClient:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[self storage]];
+            [initializer injectParameterWith:[self apiClient]];
+        }];
     }];
 }
 
