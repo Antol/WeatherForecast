@@ -27,6 +27,11 @@ PODS:
   - Mantle (2.0.5):
     - Mantle/extobjc (= 2.0.5)
   - Mantle/extobjc (2.0.5)
+  - MTLManagedObjectAdapter (1.0.0.1):
+    - Mantle (~> 2.0)
+    - MTLManagedObjectAdapter/extobjc (= 1.0.0.1)
+  - MTLManagedObjectAdapter/extobjc (1.0.0.1):
+    - Mantle (~> 2.0)
   - OCMock (3.2)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -43,6 +48,7 @@ DEPENDENCIES:
   - AFNetworking-RACExtensions (~> 0.1.8)
   - Expecta (~> 1.0.3)
   - Mantle (~> 2.0.5)
+  - MTLManagedObjectAdapter (~> 1.0.0.1)
   - OCMock (~> 3.2)
   - ReactiveCocoa (~> 2.5)
   - Typhoon (~> 3.3.3)
@@ -52,6 +58,7 @@ SPEC CHECKSUMS:
   AFNetworking-RACExtensions: a043c6b492fa892395ceb9d20bc4c94e96e08a57
   Expecta: 9d1bff6c8b0eeee73a166a2ee898892478927a15
   Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
+  MTLManagedObjectAdapter: 2da4b0244ee66f87b43e5fe9e7cd47838dea83ae
   OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Typhoon: df3d23f59dccc8eda3e6535e58afd160ae60567e
