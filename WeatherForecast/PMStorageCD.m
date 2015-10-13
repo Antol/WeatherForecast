@@ -18,6 +18,7 @@
 {
     self = [super init];
     if (self) {
+        [MagicalRecord cleanUp];
         switch (config.type) {
             case PMStorageCDTypeSqlite: [MagicalRecord setupAutoMigratingCoreDataStack]; break;
             case PMStorageCDTypeInMemory: [MagicalRecord setupCoreDataStackWithInMemoryStore]; break;
@@ -80,6 +81,31 @@
             else {
                 [subscriber sendError:error];
             }
+        }];
+        return nil;
+    }];
+}
+
+- (RACSignal *)saveSyncObjects:(NSArray *)objects
+{
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+            [objects enumerateObjectsUsingBlock:^(MTLModel<MTLManagedObjectSerializing> *obj, NSUInteger idx, BOOL *stop) {
+                NSAssert([obj isKindOfClass:[MTLModel class]] &&
+                         [obj conformsToProtocol:@protocol(MTLManagedObjectSerializing)],
+                         @"Object should conforms to protocol MTLManagedObjectSerializing");
+                NSError *error;
+                
+                [MTLManagedObjectAdapter managedObjectFromModel:obj insertingIntoContext:localContext error:&error];
+                
+                if (error) {
+                    *stop = YES;
+                    [subscriber sendError:error];
+                }
+            }];
+            
+            [subscriber sendNext:@YES];
+            [subscriber sendCompleted];
         }];
         return nil;
     }];

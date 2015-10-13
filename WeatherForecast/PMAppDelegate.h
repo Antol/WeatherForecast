@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+@class PMAppConfigurator;
 
 @interface PMAppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) PMAppConfigurator *configurator;
 @end
 

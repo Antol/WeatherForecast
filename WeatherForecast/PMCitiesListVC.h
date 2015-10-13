@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 @protocol PMApiClient;
+@protocol PMStorage;
 
 @interface PMCitiesListVC : UIViewController
-@property (nonatomic, assign) id<PMApiClient> test;
+@property (nonatomic, assign) id<PMApiClient> apiClient;
+@property (nonatomic, strong) id<PMStorage> storage;
 @end

@@ -12,6 +12,7 @@
 #import <RACAFNetworking.h>
 #import "PMStorageCD.h"
 #import "PMStorageCDConfiguration.h"
+#import "PMAppConfigurator.h"
 
 @implementation PMServicesAssembly
 
@@ -52,6 +53,14 @@
     return [TyphoonDefinition withClass:[PMStorageCDConfiguration class] configuration:^(TyphoonDefinition *definition)
     {
         [definition injectProperty:@selector(type) with:@(PMStorageCDTypeSqlite)];
+    }];
+}
+
+- (PMAppConfigurator *)appConfigurator
+{
+    return [TyphoonDefinition withClass:[PMAppConfigurator class] configuration:^(TyphoonDefinition *definition)
+    {
+        [definition injectProperty:@selector(storage)];
     }];
 }
 

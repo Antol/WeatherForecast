@@ -14,14 +14,18 @@
 
 - (PMAppDelegate *)appDelegate
 {
-    return [TyphoonDefinition withClass:[PMAppDelegate class]];
+    return [TyphoonDefinition withClass:[PMAppDelegate class] configuration:^(TyphoonDefinition *definition)
+    {
+        [definition injectProperty:@selector(configurator)];
+    }];
 }
 
 - (PMCitiesListVC *)PMCitiesListVC
 {
     return [TyphoonDefinition withClass:[PMCitiesListVC class] configuration:^(TyphoonDefinition *definition)
     {
-        [definition injectProperty:@selector(test)];
+        [definition injectProperty:@selector(apiClient)];
+        [definition injectProperty:@selector(storage)];
     }];
 }
 

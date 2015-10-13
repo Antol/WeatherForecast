@@ -7,12 +7,13 @@
 //
 
 #import "PMAppDelegate.h"
+#import "PMAppConfigurator.h"
 
 @implementation PMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    return YES;
+    return [self.configurator configOnStartApp];
 }
 
 @end

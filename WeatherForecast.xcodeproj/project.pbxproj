@@ -60,6 +60,7 @@
 		35CDEF641BCC685E007434E3 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35CDEF631BCC685E007434E3 /* Configuration.plist */; settings = {ASSET_TAGS = (); }; };
 		35E1EA571BCD11A700AFDB3A /* PMStorageCDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E1EA561BCD11A700AFDB3A /* PMStorageCDTest.m */; settings = {ASSET_TAGS = (); }; };
 		35E1EA5A1BCD144600AFDB3A /* PMStorageCDConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E1EA591BCD144600AFDB3A /* PMStorageCDConfiguration.m */; settings = {ASSET_TAGS = (); }; };
+		35E1EA5E1BCD1BC200AFDB3A /* PMAppConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E1EA5D1BCD1BC200AFDB3A /* PMAppConfigurator.m */; settings = {ASSET_TAGS = (); }; };
 		CDA102D38ACF4DDA905A03CC /* libPods-WeatherForecastTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D1B2D9230571B6A6EAE864 /* libPods-WeatherForecastTests.a */; };
 		F525246D83EFC80C7D92CFB9 /* libPods-WeatherForecast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E66575FD03ADAFCEAAAB9814 /* libPods-WeatherForecast.a */; };
 /* End PBXBuildFile section */
@@ -186,6 +187,8 @@
 		35E1EA561BCD11A700AFDB3A /* PMStorageCDTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMStorageCDTest.m; sourceTree = "<group>"; };
 		35E1EA581BCD144600AFDB3A /* PMStorageCDConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMStorageCDConfiguration.h; sourceTree = "<group>"; };
 		35E1EA591BCD144600AFDB3A /* PMStorageCDConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMStorageCDConfiguration.m; sourceTree = "<group>"; };
+		35E1EA5C1BCD1BC200AFDB3A /* PMAppConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAppConfigurator.h; sourceTree = "<group>"; };
+		35E1EA5D1BCD1BC200AFDB3A /* PMAppConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAppConfigurator.m; sourceTree = "<group>"; };
 		4D92697F20920ECC6F61EBA6 /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 		E66575FD03ADAFCEAAAB9814 /* libPods-WeatherForecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58418DBA6BC467DDC00C4A7 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
@@ -500,6 +503,7 @@
 		357EA7B91BCAB16400605442 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				35E1EA5B1BCD1B8500AFDB3A /* AppConfigurator */,
 				3579589D1BCD0F720010C668 /* Storage */,
 				35CDEF451BCC0580007434E3 /* ApiClient */,
 			);
@@ -597,6 +601,15 @@
 				35E1EA561BCD11A700AFDB3A /* PMStorageCDTest.m */,
 			);
 			name = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		35E1EA5B1BCD1B8500AFDB3A /* AppConfigurator */ = {
+			isa = PBXGroup;
+			children = (
+				35E1EA5C1BCD1BC200AFDB3A /* PMAppConfigurator.h */,
+				35E1EA5D1BCD1BC200AFDB3A /* PMAppConfigurator.m */,
+			);
+			name = AppConfigurator;
 			sourceTree = "<group>";
 		};
 		842C9C3FA6188367B379EAD4 /* Frameworks */ = {
@@ -873,6 +886,7 @@
 				357958A21BCD0FF20010C668 /* PMStorageCD.m in Sources */,
 				357EA78D1BCAAF3F00605442 /* WeatherForecast.xcdatamodeld in Sources */,
 				3544749D1BCBA66300B87528 /* PMCondition.m in Sources */,
+				35E1EA5E1BCD1BC200AFDB3A /* PMAppConfigurator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

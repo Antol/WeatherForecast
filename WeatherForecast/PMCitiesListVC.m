@@ -8,6 +8,8 @@
 
 #import "PMCitiesListVC.h"
 #import "PMApiClient.h"
+#import "PMStorage.h"
+#import "PMPlace.h"
 
 @interface PMCitiesListVC ()
 
@@ -18,11 +20,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"================> %@", self.test);
-    [[self.test searchPlaceByName:@"temp"] subscribeNext:^(id x) {
+    [[self.storage getAllObjectsForClass:[PMPlace class]] subscribeNext:^(id x) {
         NSLog(@"================> %@", x);
-    } error:^(NSError *error) {
-        NSLog(@"================> %@", error);
     }];
 }
 
