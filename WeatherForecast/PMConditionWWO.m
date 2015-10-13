@@ -60,9 +60,7 @@
 
 + (id)weatherDescriptionJSONTransformer
 {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *weatherDesc, BOOL *success, NSError *__autoreleasing *error) {
-        return [[weatherDesc firstObject] valueForKey:@"value"];
-    }];
+    return [NSValueTransformer PM_arrayWithSingleValueDictionaryTransformer];
 }
 
 + (id)weatherIconUrlJSONTransformer

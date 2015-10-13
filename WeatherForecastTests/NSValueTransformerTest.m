@@ -113,6 +113,21 @@ static NSCalendar *calendar = nil;
     expect([transformer transformedValue:@"S"]).to.equal(PMWindDirectionS);
 }
 
+
+- (void)testArrayWithSingleValueDictionaryTransformerExists
+{
+    NSValueTransformer *transformer = [NSValueTransformer PM_arrayWithSingleValueDictionaryTransformer];
+    expect(transformer).toNot.beNil();
+}
+
+- (void)testTransformArrayWithSingleValueDictionary
+{
+    NSArray *valueForTransform = @[@{@"value": @"Dublin"}];
+    NSValueTransformer *transformer = [NSValueTransformer PM_arrayWithSingleValueDictionaryTransformer];
+    
+    expect([transformer transformedValue:valueForTransform]).to.equal(@"Dublin");
+}
+
 @end
 
 

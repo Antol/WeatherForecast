@@ -13,5 +13,6 @@
 + (instancetype)PM_dateAndTimeTransformer;
 + (instancetype)PM_stringToNumberTransformer;
 + (instancetype)PM_windDirectionTransformer;
++ (instancetype)PM_arrayWithSingleValueDictionaryTransformer;
 
 @end

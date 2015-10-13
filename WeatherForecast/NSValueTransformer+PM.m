@@ -87,6 +87,18 @@
     return transformer;
 }
 
++ (instancetype)PM_arrayWithSingleValueDictionaryTransformer
+{
+    static NSValueTransformer *transformer = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        transformer = [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *values, BOOL *success, NSError *__autoreleasing *error) {
+            return [[values firstObject] valueForKey:@"value"];
+        }];
+    });
+    return transformer;
+}
+
 @end
 
 

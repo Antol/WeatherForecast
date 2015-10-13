@@ -11,5 +11,9 @@
 
 @interface PMPlace : PMBaseModel
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *region;
+@property (nonatomic, strong) NSString *country;
+@property (nonatomic, strong) NSNumber *latitude;
+@property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSString *query;
 @end
