@@ -46,6 +46,9 @@
 		357EA7C01BCAB94B00605442 /* PMAppAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 357EA7BF1BCAB94B00605442 /* PMAppAssembly.m */; settings = {ASSET_TAGS = (); }; };
 		3582AD5B1BCD2FE500611136 /* PMPlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD5A1BCD2FE500611136 /* PMPlaceTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		3582AD5E1BCD313400611136 /* PMNibManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD5D1BCD313400611136 /* PMNibManagement.m */; settings = {ASSET_TAGS = (); }; };
+		3582AD611BCD356A00611136 /* PMSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD601BCD356A00611136 /* PMSettingsVC.m */; settings = {ASSET_TAGS = (); }; };
+		3582AD641BCD35FB00611136 /* PMPlaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD631BCD35FB00611136 /* PMPlaceVC.m */; settings = {ASSET_TAGS = (); }; };
+		3582AD671BCD363000611136 /* PMSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD661BCD363000611136 /* PMSearchVC.m */; settings = {ASSET_TAGS = (); }; };
 		35B9917A1BCBC60400358608 /* PMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B991791BCBC60400358608 /* PMUtils.m */; settings = {ASSET_TAGS = (); }; };
 		35B9917E1BCBC7AA00358608 /* NSValueTransformer+PM.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B9917D1BCBC7AA00358608 /* NSValueTransformer+PM.m */; settings = {ASSET_TAGS = (); }; };
 		35B991811BCBC7E100358608 /* NSValueTransformerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B991801BCBC7E100358608 /* NSValueTransformerTest.m */; settings = {ASSET_TAGS = (); }; };
@@ -166,6 +169,12 @@
 		3582AD5A1BCD2FE500611136 /* PMPlaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMPlaceTableViewCell.m; sourceTree = "<group>"; };
 		3582AD5C1BCD313400611136 /* PMNibManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMNibManagement.h; sourceTree = "<group>"; };
 		3582AD5D1BCD313400611136 /* PMNibManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMNibManagement.m; sourceTree = "<group>"; };
+		3582AD5F1BCD356A00611136 /* PMSettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSettingsVC.h; sourceTree = "<group>"; };
+		3582AD601BCD356A00611136 /* PMSettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSettingsVC.m; sourceTree = "<group>"; };
+		3582AD621BCD35FB00611136 /* PMPlaceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMPlaceVC.h; sourceTree = "<group>"; };
+		3582AD631BCD35FB00611136 /* PMPlaceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMPlaceVC.m; sourceTree = "<group>"; };
+		3582AD651BCD363000611136 /* PMSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSearchVC.h; sourceTree = "<group>"; };
+		3582AD661BCD363000611136 /* PMSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSearchVC.m; sourceTree = "<group>"; };
 		35B991781BCBC60400358608 /* PMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMUtils.h; sourceTree = "<group>"; };
 		35B991791BCBC60400358608 /* PMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMUtils.m; sourceTree = "<group>"; };
 		35B9917C1BCBC7AA00358608 /* NSValueTransformer+PM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+PM.h"; sourceTree = "<group>"; };
@@ -493,6 +502,12 @@
 			children = (
 				357EA7BB1BCAB78A00605442 /* PMPlacesListVC.h */,
 				357EA7BC1BCAB78A00605442 /* PMPlacesListVC.m */,
+				3582AD5F1BCD356A00611136 /* PMSettingsVC.h */,
+				3582AD601BCD356A00611136 /* PMSettingsVC.m */,
+				3582AD621BCD35FB00611136 /* PMPlaceVC.h */,
+				3582AD631BCD35FB00611136 /* PMPlaceVC.m */,
+				3582AD651BCD363000611136 /* PMSearchVC.h */,
+				3582AD661BCD363000611136 /* PMSearchVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -882,7 +897,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				357958971BCD0B200010C668 /* PMPlaceEntity+CoreDataProperties.m in Sources */,
+				3582AD641BCD35FB00611136 /* PMPlaceVC.m in Sources */,
 				352C288A1BCC73710098FDB8 /* PMConfigAssembly.m in Sources */,
+				3582AD611BCD356A00611136 /* PMSettingsVC.m in Sources */,
 				35E1EA5A1BCD144600AFDB3A /* PMStorageCDConfiguration.m in Sources */,
 				35B9917E1BCBC7AA00358608 /* NSValueTransformer+PM.m in Sources */,
 				35B9917A1BCBC60400358608 /* PMUtils.m in Sources */,
@@ -892,6 +909,7 @@
 				354474A51BCBBAA800B87528 /* PMBaseModel.m in Sources */,
 				354474AA1BCBBC1C00B87528 /* PMConditionWWO.m in Sources */,
 				35CDEF5D1BCC561E007434E3 /* PMPlaceWWO.m in Sources */,
+				3582AD671BCD363000611136 /* PMSearchVC.m in Sources */,
 				3579589C1BCD0B860010C668 /* PMPlace+MTLManagedObjectSerializing.m in Sources */,
 				35CDEF621BCC66F0007434E3 /* PMServicesAssembly.m in Sources */,
 				357EA7C01BCAB94B00605442 /* PMAppAssembly.m in Sources */,
