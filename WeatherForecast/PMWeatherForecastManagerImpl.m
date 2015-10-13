@@ -57,7 +57,19 @@
 
 - (RACSignal *)addPlace:(PMPlace *)place
 {
-    return [RACSignal error:[NSError errorWithDomain:@"TODO" code:0 userInfo:nil]];
+    if ([self.places containsObject:place]) {
+        NSString *errorDesc = [NSString stringWithFormat:@"%@ already added", place.name];
+        RACSignal *errorSignal = [RACSignal error:[NSError errorWithDomain:errorDesc
+                                                                      code:0
+                                                                  userInfo:nil]];
+        return errorSignal;
+    }
+    
+    NSMutableArray *mutablePlaces = [self.places mutableCopy];
+    [mutablePlaces addObject:place];
+    self.places = [mutablePlaces copy];
+    
+    return [self.storage saveObjects:@[place]];
 }
 
 @end

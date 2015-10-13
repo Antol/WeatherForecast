@@ -24,7 +24,9 @@
 @interface PMWeatherForecastManagerTest : XCTestCase
 @property (nonatomic, strong) PMWeatherForecastManagerImpl *forecastManager;
 @property (nonatomic, strong) PMWeatherForecast *forecast;
+@property (nonatomic, strong) PMWeatherForecast *forecast2;
 @property (nonatomic, strong) PMPlace *place;
+@property (nonatomic, strong) PMPlace *place2;
 
 @property (nonatomic, strong) id<PMStorage> storageMock;
 @property (nonatomic, strong) id<PMApiClient> apiClientMock;
@@ -35,14 +37,18 @@
 - (void)setUp
 {
     [super setUp];
-    self.place = [self place];
-    self.forecast = [self forecastWithPlace:self.place];
+    self.place = [self createPlace];
+    self.place2 = [self createPlace2];
+    self.forecast = (id)@"1";//[self forecastWithPlace:self.place];
+    self.forecast2 = (id)@"2";//[self forecastWithPlace:self.place2];
     
     self.storageMock = OCMClassMock([PMStorageCD class]);
     OCMStub([self.storageMock getAllObjectsForClass:[PMPlace class]]).andReturn([RACSignal return:@[self.place]]);
+    OCMStub([self.storageMock saveObjects:@[self.place2]]);
     
     self.apiClientMock = OCMClassMock([PMApiClientWWO class]);
-    OCMStub([self.apiClientMock getWeatherForecastForPlace:self.place]).andReturn([[RACSignal return:self.forecast] delay:1]);
+    OCMStub([self.apiClientMock getWeatherForecastForPlace:self.place]).andReturn([RACSignal return:self.forecast]);
+    OCMStub([self.apiClientMock getWeatherForecastForPlace:self.place2]).andReturn([RACSignal return:self.forecast2]);
     
     PMServicesAssembly *assembly = [[PMServicesAssembly assembly] activateWithCollaboratingAssemblies:@[[PMConfigAssembly assembly]]];
     TyphoonPatcher *patcher = [[TyphoonPatcher alloc] init];
@@ -63,19 +69,33 @@
     expect(self.forecastManager).toNot.beNil();
 }
 
-- (void)testForecastManagerHasOneForecast
+- (void)testGetForecasts
 {
-    RACSignal *forecastsSignal = RACObserve(self.forecastManager, forecasts);
+    RACSignal *forecastsSignal = [RACObserve(self.forecastManager, forecasts) ignore:nil];
     
-    expect(forecastsSignal).will.sendValues(@[[NSNull null], @[self.forecast]]);
+    expect(forecastsSignal).will.sendValues(@[@[self.forecast]]);
     
     OCMVerify([self.storageMock getAllObjectsForClass:[PMPlace class]]);
     OCMVerify([self.apiClientMock getWeatherForecastForPlace:self.place]);
 }
 
+- (void)testAddPlace
+{
+    RACSignal *forecastsSignal = [[RACObserve(self.forecastManager, forecasts) ignore:nil] skip:1];
+    
+    [[self.forecastManager addPlace:self.place2] subscribeError:^(NSError *error) {
+        failure(@"This should not happen");
+    }];
+    
+    expect(forecastsSignal).after(5).sendValues(@[@[self.forecast, self.forecast2]]);
+    
+    OCMVerify([self.storageMock saveObjects:[OCMArg any]]);
+    OCMVerify([self.apiClientMock getWeatherForecastForPlace:self.place2]);
+}
+
 #pragma mark - Private
 
-- (PMPlace *)place
+- (PMPlace *)createPlace
 {
     PMPlace *place = [PMPlace new];
     place.name = @"Hell";
@@ -83,9 +103,17 @@
     return place;
 }
 
-- (PMWeatherForecast *)forecastWithPlace:(PMPlace *)place
+- (PMPlace *)createPlace2
 {
-    PMCondition *condition = [self condition];
+    PMPlace *place = [PMPlace new];
+    place.name = @"Heaven";
+    place.query = @"Heaven";
+    return place;
+}
+
+- (PMWeatherForecast *)createForecastWithPlace:(PMPlace *)place
+{
+    PMCondition *condition = [self createCondition];
     PMWeatherForecast *forecast = [PMWeatherForecast new];
     forecast.place = place;
     forecast.currentCondition = condition;
@@ -93,7 +121,7 @@
     return forecast;
 }
 
-- (PMCondition *)condition
+- (PMCondition *)createCondition
 {
     PMCondition *condition = [PMCondition new];
     condition.temperatureC = @1;
