@@ -7,26 +7,49 @@
 //
 
 #import "PMSearchVC.h"
+#import "PMNibManagement.h"
+#import "PMSearchTableViewCell.h"
 
-@interface PMSearchVC ()
-
+@interface PMSearchVC () <UISearchResultsUpdating>
+@property (strong, nonatomic) UISearchController *searchController;
 @end
 
 @implementation PMSearchVC
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    [self.searchController.searchBar sizeToFit];
+    
+    self.definesPresentationContext = YES;
+}
 
 #pragma mark - UITableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 3;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = nil;//[tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    PMSearchTableViewCell *cell = [tableView dequeueReusableCellForClass:[PMSearchTableViewCell class] indexPath:indexPath];
     return cell;
 }
 
+#pragma mark - UISearchController
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+    NSString *searchString = searchController.searchBar.text;
+    NSLog(@"================> %@", searchString);
+//    [self searchForText:searchString scope:searchController.searchBar.selectedScopeButtonIndex];
+    [self.tableView reloadData];
+}
 
 @end
