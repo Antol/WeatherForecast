@@ -72,6 +72,15 @@
     return [self.storage saveObjects:@[place]];
 }
 
+- (RACSignal *)removePlace:(PMPlace *)place
+{
+    NSMutableArray *mutablePlaces = [self.places mutableCopy];
+    [mutablePlaces removeObject:place];
+    self.places = [mutablePlaces copy];
+    
+    return [self.storage removeObjects:@[place]];
+}
+
 @end
 
 

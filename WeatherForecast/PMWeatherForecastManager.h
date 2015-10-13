@@ -14,4 +14,5 @@
 @property (nonatomic, strong) NSArray *forecasts;
 - (RACSignal *)updateAll;
 - (RACSignal *)addPlace:(PMPlace *)place;
+- (RACSignal *)removePlace:(PMPlace *)place;
 @end

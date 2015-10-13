@@ -44,7 +44,8 @@
     
     self.storageMock = OCMClassMock([PMStorageCD class]);
     OCMStub([self.storageMock getAllObjectsForClass:[PMPlace class]]).andReturn([RACSignal return:@[self.place]]);
-    OCMStub([self.storageMock saveObjects:@[self.place2]]);
+    OCMStub([self.storageMock saveObjects:[OCMArg any]]).andReturn([RACSignal return:@YES]);
+    OCMStub([self.storageMock removeObjects:[OCMArg any]]).andReturn([RACSignal return:@YES]);
     
     self.apiClientMock = OCMClassMock([PMApiClientWWO class]);
     OCMStub([self.apiClientMock getWeatherForecastForPlace:self.place]).andReturn([RACSignal return:self.forecast]);
@@ -71,9 +72,7 @@
 
 - (void)testGetForecasts
 {
-    RACSignal *forecastsSignal = [RACObserve(self.forecastManager, forecasts) ignore:nil];
-    
-    expect(forecastsSignal).will.sendValues(@[@[self.forecast]]);
+    expect(self.forecastManager.forecasts).will.equal(@[self.forecast]);
     
     OCMVerify([self.storageMock getAllObjectsForClass:[PMPlace class]]);
     OCMVerify([self.apiClientMock getWeatherForecastForPlace:self.place]);
@@ -86,9 +85,18 @@
     }];
     
     expect(self.forecastManager.forecasts).will.equal(@[self.forecast, self.forecast2]);
-    
     OCMVerify([self.storageMock saveObjects:[OCMArg any]]);
     OCMVerify([self.apiClientMock getWeatherForecastForPlace:self.place2]);
+}
+
+- (void)testRemovePlace
+{
+    [[self.forecastManager removePlace:self.place] subscribeError:^(NSError *error) {
+        failure(@"This should not happen");
+    }];
+    
+    expect(self.forecastManager.forecasts).will.equal(@[]);
+    OCMVerify([self.storageMock removeObjects:[OCMArg any]]);
 }
 
 #pragma mark - Private
