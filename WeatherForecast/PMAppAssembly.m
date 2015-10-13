@@ -8,7 +8,7 @@
 
 #import "PMAppAssembly.h"
 #import "PMAppDelegate.h"
-#import "PMCitiesListVC.h"
+#import "PMPlacesListVC.h"
 
 @implementation PMAppAssembly
 
@@ -20,9 +20,9 @@
     }];
 }
 
-- (PMCitiesListVC *)PMCitiesListVC
+- (PMPlacesListVC *)PMCitiesListVC
 {
-    return [TyphoonDefinition withClass:[PMCitiesListVC class] configuration:^(TyphoonDefinition *definition)
+    return [TyphoonDefinition withClass:[PMPlacesListVC class] configuration:^(TyphoonDefinition *definition)
     {
         [definition injectProperty:@selector(apiClient)];
         [definition injectProperty:@selector(storage)];

@@ -10,7 +10,7 @@
 @protocol PMApiClient;
 @protocol PMStorage;
 
-@interface PMCitiesListVC : UIViewController
+@interface PMPlacesListVC : UIViewController
 @property (nonatomic, assign) id<PMApiClient> apiClient;
 @property (nonatomic, strong) id<PMStorage> storage;
 @end
