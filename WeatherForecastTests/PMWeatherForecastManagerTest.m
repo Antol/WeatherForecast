@@ -81,13 +81,13 @@
 
 - (void)testAddPlace
 {
-    RACSignal *forecastsSignal = [[RACObserve(self.forecastManager, forecasts) ignore:nil] skip:1];
+    RACSignal *forecastsSignal = [[[RACObserve(self.forecastManager, forecasts) ignore:nil] skip:1] take:1];
     
     [[self.forecastManager addPlace:self.place2] subscribeError:^(NSError *error) {
         failure(@"This should not happen");
     }];
     
-    expect(forecastsSignal).after(5).sendValues(@[@[self.forecast, self.forecast2]]);
+    expect(forecastsSignal).after(10).sendValues(@[@[self.forecast, self.forecast2]]);
     
     OCMVerify([self.storageMock saveObjects:[OCMArg any]]);
     OCMVerify([self.apiClientMock getWeatherForecastForPlace:self.place2]);

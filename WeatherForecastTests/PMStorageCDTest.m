@@ -25,7 +25,8 @@
 - (void)setUp
 {
     [super setUp];
-    PMServicesAssembly *assembly = [[PMServicesAssembly assembly] activateWithCollaboratingAssemblies:@[[PMConfigAssembly assembly]]];
+    PMServicesAssembly *assembly = [[PMServicesAssembly assembly]
+                                    activateWithCollaboratingAssemblies:@[[PMConfigAssembly assembly]]];
     
     TyphoonPatcher *patcher = [[TyphoonPatcher alloc] init];
     [patcher patchDefinitionWithSelector:@selector(storageConfig) withObject:^id{
@@ -66,6 +67,28 @@
         }];
     
     expect(savedEntitiesSignal).will.sendValues(@[@[place]]);
+}
+
+- (void)testRemovePlace
+{
+    PMPlace *place = [PMPlace new];
+    place.name = @"Hogwarts";
+    place.region = @"Old England";
+    place.country = @"England";
+    place.query = @"Hogwarts,England";
+    place.latitude = @42;
+    place.longitude = @42;
+    
+    RACSignal *savedEntitiesSignal = [[[self.storage
+        saveObjects:@[place]]
+        then:^RACSignal *{
+            return [self.storage removeObjects:@[place]];
+        }]
+        then:^RACSignal *{
+            return [self.storage getAllObjectsForClass:[PMPlace class]];
+        }];
+    
+    expect(savedEntitiesSignal).will.sendValues(@[@[]]);
 }
 
 @end

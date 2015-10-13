@@ -14,4 +14,5 @@
 - (RACSignal *)getAllObjectsForClass:(Class)aClass withPredicate:(NSPredicate *)predicate;
 - (RACSignal *)saveObjects:(NSArray *)objects;
 - (RACSignal *)saveSyncObjects:(NSArray *)objects;
+- (RACSignal *)removeObjects:(NSArray *)objects;
 @end
