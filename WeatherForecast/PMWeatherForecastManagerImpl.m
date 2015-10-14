@@ -16,6 +16,7 @@
 @property (nonatomic, strong) id<PMStorage> storage;
 
 @property (nonatomic, strong) NSArray *places;
+@property (nonatomic, assign) BOOL isActivated;
 @end
 
 @implementation PMWeatherForecastManagerImpl
@@ -28,19 +29,27 @@
     if (self) {
         self.storage = storage;
         self.apiClient = apiClient;
-        
-        @weakify(self);
-        [[self.storage getAllObjectsForClass:[PMPlace class]] subscribeNext:^(id x) {
-            @strongify(self);
-            self.places = x;
-        }];
-        
-        RAC(self, forecasts) = [RACObserve(self, places) flattenMap:^RACStream *(id value) {
-            @strongify(self);
-            return [self updateAll];
-        }];
     }
     return self;
+}
+
+- (void)activate
+{
+    if (self.isActivated) {
+        return;
+    }
+    self.isActivated = YES;
+    
+    @weakify(self);
+    [[self.storage getAllObjectsForClass:[PMPlace class]] subscribeNext:^(id x) {
+        @strongify(self);
+        self.places = x;
+    }];
+    
+    RAC(self, forecasts) = [RACObserve(self, places) flattenMap:^RACStream *(id value) {
+        @strongify(self);
+        return [self updateAll];
+    }];
 }
 
 - (RACSignal *)updateAll

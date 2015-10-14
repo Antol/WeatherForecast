@@ -28,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.forecastManager activate];
+    
     @weakify(self);
     [RACObserve(self.forecastManager, forecasts) subscribeNext:^(id x) {
         @strongify(self);

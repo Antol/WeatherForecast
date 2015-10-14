@@ -27,7 +27,7 @@ static NSString *const kPMAppConfiguratorApreadyStarted = @"kPMAppConfiguratorAp
         defaultPlace.country = @"Ireland";
         defaultPlace.latitude = @53.333;
         defaultPlace.longitude = @(-6.249);
-        defaultPlace.query = @"Dublin";
+        defaultPlace.query = @"Dublin, Dublin, Ireland";
         
         NSError *error = nil;
         success = [[self.storage saveSyncObjects:@[defaultPlace]] waitUntilCompleted:&error];

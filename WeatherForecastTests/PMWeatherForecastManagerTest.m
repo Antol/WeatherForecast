@@ -72,6 +72,7 @@
 
 - (void)testGetForecasts
 {
+    [self.forecastManager activate];
     expect(self.forecastManager.forecasts).will.equal(@[self.forecast]);
     
     OCMVerify([self.storageMock getAllObjectsForClass:[PMPlace class]]);
@@ -80,6 +81,7 @@
 
 - (void)testAddPlace
 {
+    [self.forecastManager activate];
     [[self.forecastManager addPlace:self.place2] subscribeError:^(NSError *error) {
         failure(@"This should not happen");
     }];
@@ -91,6 +93,7 @@
 
 - (void)testRemovePlace
 {
+    [self.forecastManager activate];
     [[self.forecastManager removePlace:self.place] subscribeError:^(NSError *error) {
         failure(@"This should not happen");
     }];

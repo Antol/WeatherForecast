@@ -12,6 +12,9 @@
 
 @protocol PMWeatherForecastManager <NSObject>
 @property (nonatomic, strong) NSArray *forecasts;
+
+- (void)activate;
+
 - (RACSignal *)updateAll;
 - (RACSignal *)addPlace:(PMPlace *)place;
 - (RACSignal *)removePlace:(PMPlace *)place;

@@ -73,6 +73,7 @@
             [initializer injectParameterWith:[self storage]];
             [initializer injectParameterWith:[self apiClient]];
         }];
+        definition.scope = TyphoonScopeLazySingleton;
     }];
 }
 
