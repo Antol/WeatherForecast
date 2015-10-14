@@ -170,7 +170,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PMSearchErrorTableViewCell" textLabel="taD-kz-284" style="IBUITableViewCellStyleDefault" id="LlD-oK-qB2" customClass="PMSearchErrorTableViewCell">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PMSearchErrorTableViewCell" textLabel="taD-kz-284" style="IBUITableViewCellStyleDefault" id="LlD-oK-qB2" customClass="PMSearchErrorTableViewCell">
                                 <rect key="frame" x="0.0" y="152" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LlD-oK-qB2" id="l0v-q0-2s9">
@@ -195,8 +195,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="m7q-nH-QWl"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <segue destination="Y0i-NN-sL8" kind="unwind" identifier="UnwindToPMPlacesListVC" unwindAction="prepareForUnwind:" id="Z4i-AN-UcM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3F8-gu-WO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Y0i-NN-sL8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="536" y="981"/>
         </scene>

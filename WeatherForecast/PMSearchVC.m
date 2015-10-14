@@ -13,7 +13,9 @@
 #import "PMApiClient.h"
 #import "PMSearchErrorTableViewCell.h"
 
-@interface PMSearchVC () <UISearchResultsUpdating>
+static NSString *const kUnwindToPMPlacesListVC = @"UnwindToPMPlacesListVC";
+
+@interface PMSearchVC () <UISearchControllerDelegate, UISearchResultsUpdating>
 @property (strong, nonatomic) UISearchController *searchController;
 
 @property (nonatomic, strong) NSArray *places;
@@ -61,6 +63,15 @@
     cell.textLabel.text = place.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", place.region, place.country];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.searchController.isActive) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self performSegueWithIdentifier:kUnwindToPMPlacesListVC sender:self];
+        }];
+    }
 }
 
 #pragma mark - UISearchController
