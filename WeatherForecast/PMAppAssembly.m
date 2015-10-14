@@ -34,6 +34,7 @@
     return [TyphoonDefinition withClass:[PMSearchVC class] configuration:^(TyphoonDefinition *definition)
     {
         [definition injectProperty:@selector(apiClient)];
+        [definition injectProperty:@selector(forecastManager)];
     }];
 }
 

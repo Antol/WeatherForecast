@@ -12,6 +12,7 @@
 #import "PMPlace.h"
 #import "PMApiClient.h"
 #import "PMSearchErrorTableViewCell.h"
+#import "PMWeatherForecastManager.h"
 
 static NSString *const kUnwindToPMPlacesListVC = @"UnwindToPMPlacesListVC";
 
@@ -20,8 +21,6 @@ static NSString *const kUnwindToPMPlacesListVC = @"UnwindToPMPlacesListVC";
 
 @property (nonatomic, strong) NSArray *places;
 @property (nonatomic, strong) NSString *errorMessage;
-
-@property (nonatomic, strong) PMPlace *selectedPlace;
 @end
 
 @implementation PMSearchVC
@@ -69,13 +68,20 @@ static NSString *const kUnwindToPMPlacesListVC = @"UnwindToPMPlacesListVC";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedPlace = [self.places objectAtIndex:indexPath.row];
+    PMPlace *newPlace = [self.places objectAtIndex:indexPath.row];;
     
-    if (self.searchController.isActive) {
-        [self dismissViewControllerAnimated:YES completion:^{
-            [self performSegueWithIdentifier:kUnwindToPMPlacesListVC sender:self];
-        }];
-    }
+    @weakify(self);
+    [[self.forecastManager addPlace:newPlace] subscribeError:^(NSError *error) {
+        @strongify(self);
+        [self showAlertWithMessage:error.domain];
+    } completed:^{
+        @strongify(self);
+        if (self.searchController.isActive) {
+            [self dismissViewControllerAnimated:YES completion:^{
+                [self performSegueWithIdentifier:kUnwindToPMPlacesListVC sender:self];
+            }];
+        }
+    }];
 }
 
 #pragma mark - UISearchController
@@ -94,6 +100,18 @@ static NSString *const kUnwindToPMPlacesListVC = @"UnwindToPMPlacesListVC";
         self.errorMessage = error.domain;
         [self.tableView reloadData];
     }];
+}
+
+#pragma mark - Private
+
+- (void)showAlertWithMessage:(NSString *)message
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

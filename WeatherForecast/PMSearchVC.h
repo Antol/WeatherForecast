@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 @protocol PMApiClient;
+@protocol PMWeatherForecastManager;
 @class PMPlace;
 
 @interface PMSearchVC : UITableViewController
 @property (nonatomic, strong) id<PMApiClient> apiClient;
-@property (nonatomic, strong, readonly) PMPlace *selectedPlace;
+@property (nonatomic, strong) id<PMWeatherForecastManager> forecastManager;
 @end

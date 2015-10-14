@@ -66,7 +66,11 @@
 
 - (RACSignal *)addPlace:(PMPlace *)place
 {
-    if ([self.places containsObject:place]) {
+    NSUInteger index = [self.places indexOfObjectPassingTest:^BOOL(PMPlace *savedPlace, NSUInteger idx, BOOL * _Nonnull stop) {
+        return [savedPlace.query isEqualToString:place.query];
+    }];
+    
+    if (index != NSNotFound) {
         NSString *errorDesc = [NSString stringWithFormat:@"%@ already added", place.name];
         RACSignal *errorSignal = [RACSignal error:[NSError errorWithDomain:errorDesc
                                                                       code:0

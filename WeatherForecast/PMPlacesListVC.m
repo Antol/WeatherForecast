@@ -42,14 +42,6 @@
 
 - (IBAction)prepareForUnwind:(UIStoryboardSegue *)segue
 {
-    PMSearchVC *sourceVC = segue.sourceViewController;
-    PMPlace *newPlace = sourceVC.selectedPlace;
-    
-    @weakify(self);
-    [[self.forecastManager addPlace:newPlace] subscribeError:^(NSError *error) {
-        @strongify(self);
-        [self showAlertWithMessage:error.domain];
-    }];
 }
 
 #pragma mark - UITableView
