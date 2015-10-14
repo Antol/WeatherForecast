@@ -10,4 +10,12 @@
 
 @implementation PMPlace
 
+- (NSString *)query
+{
+    if (!_query) {
+        return [NSString stringWithFormat:@"%@, %@, %@", self.name, self.region, self.country];
+    }
+    return _query;
+}
+
 @end
