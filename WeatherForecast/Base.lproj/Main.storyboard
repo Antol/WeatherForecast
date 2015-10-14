@@ -371,6 +371,13 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PEG-WO-BqC">
+                                        <rect key="frame" x="14" y="1" width="100" height="73"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="73" id="Sc9-aH-cx3"/>
+                                            <constraint firstAttribute="width" constant="100" id="e5U-zq-S7l"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84970772023744834" green="1" blue="0.94124669044119824" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -380,6 +387,7 @@
                                     <constraint firstItem="5cd-2i-uLG" firstAttribute="baseline" secondItem="aO9-lv-cEP" secondAttribute="baseline" id="EJb-GO-oR1"/>
                                     <constraint firstAttribute="trailing" secondItem="Sox-D2-mfL" secondAttribute="trailing" constant="8" id="Ft9-78-SWg"/>
                                     <constraint firstItem="bSe-4Z-4Z0" firstAttribute="top" secondItem="UZb-Ng-yIu" secondAttribute="bottom" constant="4" id="POB-zm-0fg"/>
+                                    <constraint firstItem="PEG-WO-BqC" firstAttribute="top" secondItem="KhI-JW-uCR" secondAttribute="top" constant="1" id="Pf6-hB-WYo"/>
                                     <constraint firstItem="aO9-lv-cEP" firstAttribute="leading" secondItem="UZb-Ng-yIu" secondAttribute="leading" id="R88-Ns-Nst"/>
                                     <constraint firstAttribute="trailing" secondItem="aO9-lv-cEP" secondAttribute="leading" constant="170" id="WaL-tJ-9J5"/>
                                     <constraint firstItem="yKR-us-EZj" firstAttribute="leading" secondItem="KhI-JW-uCR" secondAttribute="leading" constant="10" id="Wz8-uM-UJD"/>
@@ -398,6 +406,7 @@
                                     <constraint firstItem="qFq-He-0kR" firstAttribute="leading" secondItem="KhI-JW-uCR" secondAttribute="leading" constant="10" id="qg1-l2-1nT"/>
                                     <constraint firstAttribute="height" constant="160" id="s5J-LW-GI2"/>
                                     <constraint firstAttribute="bottom" secondItem="yKR-us-EZj" secondAttribute="bottom" constant="33" id="uaI-Ve-ME5"/>
+                                    <constraint firstItem="PEG-WO-BqC" firstAttribute="leading" secondItem="KhI-JW-uCR" secondAttribute="leading" constant="14" id="vDK-F7-MZ4"/>
                                     <constraint firstItem="aO9-lv-cEP" firstAttribute="top" secondItem="bSe-4Z-4Z0" secondAttribute="bottom" constant="4" id="xdv-No-D3w"/>
                                 </constraints>
                             </view>
@@ -417,6 +426,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="humidityLabel" destination="MlQ-6j-qnX" id="NEg-CP-rKz"/>
+                        <outlet property="iconImageView" destination="PEG-WO-BqC" id="VXf-hu-nU8"/>
                         <outlet property="iconLabel" destination="vVi-pM-BxJ" id="Owe-O4-eCh"/>
                         <outlet property="precipitationLabel" destination="5cd-2i-uLG" id="vic-EL-5U9"/>
                         <outlet property="tableView" destination="xjM-9t-caY" id="giJ-fO-YyM"/>

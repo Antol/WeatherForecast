@@ -9,6 +9,7 @@
 #import "PMDailyForecastTableViewCell.h"
 #import "PMCondition.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface PMDailyForecastTableViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *temperatureMinMaxLabel;
@@ -34,6 +35,7 @@
         self.temperatureMinMaxLabel.text = [NSString stringWithFormat:@"%@° / %@°", condition.temperatureMaxC, condition.temperatureMinC];
         self.weatherDescription.text = condition.weatherDescription;
         self.dateLabel.text = [dateFormatter stringFromDate:condition.date];
+        [self.weatherImageView setImageWithURL:condition.weatherIconUrl];
     }];
 }
 

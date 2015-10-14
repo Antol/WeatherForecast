@@ -13,11 +13,13 @@
 #import "PMCondition.h"
 #import "PMDailyForecastTableViewCell.h"
 #import "PMNibManagement.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface PMPlaceVC () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UILabel *iconLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *weatherDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureMinMaxLabel;
@@ -38,6 +40,7 @@
     [RACObserve(self, forecast) subscribeNext:^(PMWeatherForecast *forecast) {
         @strongify(self);
         self.title = forecast.place.name;
+        [self.iconImageView setImageWithURL:forecast.currentCondition.weatherIconUrl];
         self.weatherDescriptionLabel.text = forecast.currentCondition.weatherDescription;
         self.temperatureLabel.text = [NSString stringWithFormat:@"%@°C", forecast.currentCondition.temperatureC];
         PMCondition *todayForecast = forecast.dailyForecastConditions.firstObject;
@@ -47,7 +50,7 @@
         self.humidityLabel.text = [NSString stringWithFormat:@"%@ %%", forecast.currentCondition.humidityPercentage];
         self.precipitationLabel.text = [NSString stringWithFormat:@"%@ mm", forecast.currentCondition.precipitationMm];
         
-        self.futureDaysConditions = [forecast.dailyForecastConditions mtl_arrayByRemovingFirstObject];
+        self.futureDaysConditions = forecast.dailyForecastConditions;
     }];
     
     [RACObserve(self, futureDaysConditions) subscribeNext:^(id x) {
