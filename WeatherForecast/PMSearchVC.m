@@ -9,9 +9,13 @@
 #import "PMSearchVC.h"
 #import "PMNibManagement.h"
 #import "PMSearchTableViewCell.h"
+#import "PMPlace.h"
+#import "PMApiClient.h"
 
 @interface PMSearchVC () <UISearchResultsUpdating>
 @property (strong, nonatomic) UISearchController *searchController;
+
+@property (nonatomic, strong) NSArray *places;
 @end
 
 @implementation PMSearchVC
@@ -33,12 +37,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.places.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PMSearchTableViewCell *cell = [tableView dequeueReusableCellForClass:[PMSearchTableViewCell class] indexPath:indexPath];
+    PMPlace *place = [self.places objectAtIndex:indexPath.row];
+    cell.textLabel.text = place.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", place.region, place.country];
     return cell;
 }
 
@@ -47,8 +54,12 @@
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
     NSString *searchString = searchController.searchBar.text;
-    NSLog(@"================> %@", searchString);
-//    [self searchForText:searchString scope:searchController.searchBar.selectedScopeButtonIndex];
+    @weakify(self);
+    [[self.apiClient searchPlaceByName:searchString] subscribeNext:^(id x) {
+        @strongify(self);
+        self.places = x;
+        [self.tableView reloadData];
+    }];
     [self.tableView reloadData];
 }
 

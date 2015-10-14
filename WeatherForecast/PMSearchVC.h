@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol PMApiClient;
 
 @interface PMSearchVC : UITableViewController
-
+@property (nonatomic, strong) id<PMApiClient> apiClient;
 @end

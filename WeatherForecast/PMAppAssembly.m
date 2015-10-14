@@ -9,6 +9,7 @@
 #import "PMAppAssembly.h"
 #import "PMAppDelegate.h"
 #import "PMPlacesListVC.h"
+#import "PMSearchVC.h"
 
 @implementation PMAppAssembly
 
@@ -25,6 +26,14 @@
     return [TyphoonDefinition withClass:[PMPlacesListVC class] configuration:^(TyphoonDefinition *definition)
     {
         [definition injectProperty:@selector(forecastManager)];
+    }];
+}
+
+- (PMSearchVC *)PMSearchVC
+{
+    return [TyphoonDefinition withClass:[PMSearchVC class] configuration:^(TyphoonDefinition *definition)
+    {
+        [definition injectProperty:@selector(apiClient)];
     }];
 }
 
