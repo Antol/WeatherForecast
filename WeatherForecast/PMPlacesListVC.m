@@ -15,6 +15,7 @@
 #import "PMWeatherForecastManager.h"
 #import "PMWeatherForecast.h"
 #import "PMCondition.h"
+#import "PMSearchVC.h"
 
 @interface PMPlacesListVC () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -39,6 +40,17 @@
 
 - (IBAction)prepareForUnwind:(UIStoryboardSegue *)segue
 {
+    PMSearchVC *sourceVC = segue.sourceViewController;
+    PMPlace *newPlace = sourceVC.selectedPlace;
+    
+    @weakify(self);
+    [[self.forecastManager addPlace:newPlace] subscribeError:^(NSError *error) {
+        @strongify(self);
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:error.domain
+                                                                       message:nil
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
 }
 
 #pragma mark - UITableView

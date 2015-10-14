@@ -76,6 +76,7 @@
     expect(place.country).to.equal(@"Ireland");
     expect(place.latitude).to.equal(@53.333);
     expect(place.longitude).to.equal(@(-6.249));
+    expect(place.query).to.equal(@"Dublin, Dublin, Ireland");
 }
 
 @end

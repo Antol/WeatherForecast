@@ -20,6 +20,8 @@ static NSString *const kUnwindToPMPlacesListVC = @"UnwindToPMPlacesListVC";
 
 @property (nonatomic, strong) NSArray *places;
 @property (nonatomic, strong) NSString *errorMessage;
+
+@property (nonatomic, strong) PMPlace *selectedPlace;
 @end
 
 @implementation PMSearchVC
@@ -67,6 +69,8 @@ static NSString *const kUnwindToPMPlacesListVC = @"UnwindToPMPlacesListVC";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.selectedPlace = [self.places objectAtIndex:indexPath.row];
+    
     if (self.searchController.isActive) {
         [self dismissViewControllerAnimated:YES completion:^{
             [self performSegueWithIdentifier:kUnwindToPMPlacesListVC sender:self];
