@@ -76,8 +76,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z9p-gC-PfM">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z9p-gC-PfM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PMPlaceTableViewCell" textLabel="xDK-bw-VRY" detailTextLabel="jRq-jZ-fp8" style="IBUITableViewCellStyleValue1" id="bgR-z2-ZFw" customClass="PMPlaceTableViewCell">
@@ -104,7 +104,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Fcd-Qc-Teh" kind="show" id="2Rb-rQ-Y1e"/>
+                                            <segue destination="Fcd-Qc-Teh" kind="show" identifier="SegueToPMPlaceVC" id="2Rb-rQ-Y1e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -115,6 +115,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Z9p-gC-PfM" secondAttribute="trailing" id="5Nj-Xn-dVV"/>
+                            <constraint firstItem="Z9p-gC-PfM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8rR-wW-DyM"/>
+                            <constraint firstItem="Z9p-gC-PfM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ARS-j7-aIJ"/>
+                            <constraint firstAttribute="bottom" secondItem="Z9p-gC-PfM" secondAttribute="bottom" id="lhS-3b-dAb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TWJ-bS-KF6">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="KsH-gW-x0s">
@@ -207,7 +213,7 @@
         <!--PlaceVC-->
         <scene sceneID="8JW-x3-7rr">
             <objects>
-                <viewController id="Fcd-Qc-Teh" customClass="PMPlaceVC" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Fcd-Qc-Teh" customClass="PMPlaceVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ySt-7v-fIo"/>
                         <viewControllerLayoutGuide type="bottom" id="M2M-UD-Gk6"/>
@@ -215,7 +221,40 @@
                     <view key="view" contentMode="scaleToFill" id="KcD-FJ-5YB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xjM-9t-caY">
+                                <rect key="frame" x="0.0" y="199" width="320" height="281"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PMDailyForecastTableViewCell" id="KT3-fv-NxB" customClass="PMDailyForecastTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KT3-fv-NxB" id="frg-Fg-qHS">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="1" green="0.87431428898809282" blue="0.8290686041345674" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhI-JW-uCR">
+                                <rect key="frame" x="0.0" y="64" width="320" height="135"/>
+                                <color key="backgroundColor" red="0.84970772023744834" green="1" blue="0.94124669044119824" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="135" id="s5J-LW-GI2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="xjM-9t-caY" secondAttribute="bottom" id="LRV-BR-Xw1"/>
+                            <constraint firstItem="KhI-JW-uCR" firstAttribute="leading" secondItem="KcD-FJ-5YB" secondAttribute="leading" id="PVd-uz-fTF"/>
+                            <constraint firstItem="xjM-9t-caY" firstAttribute="leading" secondItem="KcD-FJ-5YB" secondAttribute="leading" id="XDg-16-wTn"/>
+                            <constraint firstAttribute="trailing" secondItem="KhI-JW-uCR" secondAttribute="trailing" id="kMm-uE-ybD"/>
+                            <constraint firstAttribute="trailing" secondItem="xjM-9t-caY" secondAttribute="trailing" id="rLp-CQ-99h"/>
+                            <constraint firstItem="KhI-JW-uCR" firstAttribute="top" secondItem="ySt-7v-fIo" secondAttribute="bottom" id="vZd-L5-WAz"/>
+                            <constraint firstItem="xjM-9t-caY" firstAttribute="top" secondItem="KhI-JW-uCR" secondAttribute="bottom" id="y9T-Ve-6Lf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nfx-I5-oBG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>

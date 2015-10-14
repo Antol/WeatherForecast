@@ -53,6 +53,7 @@
 		3582AD701BCD3ACE00611136 /* PMWeatherForecastManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD6F1BCD3ACE00611136 /* PMWeatherForecastManagerTest.m */; settings = {ASSET_TAGS = (); }; };
 		3582AD731BCDC95100611136 /* PMSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD721BCDC95100611136 /* PMSearchTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		3582AD761BCDDC4400611136 /* PMSearchErrorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD751BCDDC4400611136 /* PMSearchErrorTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		3582AD791BCE12C100611136 /* PMDailyForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3582AD781BCE12C100611136 /* PMDailyForecastTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		35B9917A1BCBC60400358608 /* PMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B991791BCBC60400358608 /* PMUtils.m */; settings = {ASSET_TAGS = (); }; };
 		35B9917E1BCBC7AA00358608 /* NSValueTransformer+PM.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B9917D1BCBC7AA00358608 /* NSValueTransformer+PM.m */; settings = {ASSET_TAGS = (); }; };
 		35B991811BCBC7E100358608 /* NSValueTransformerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B991801BCBC7E100358608 /* NSValueTransformerTest.m */; settings = {ASSET_TAGS = (); }; };
@@ -187,6 +188,8 @@
 		3582AD721BCDC95100611136 /* PMSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSearchTableViewCell.m; sourceTree = "<group>"; };
 		3582AD741BCDDC4400611136 /* PMSearchErrorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSearchErrorTableViewCell.h; sourceTree = "<group>"; };
 		3582AD751BCDDC4400611136 /* PMSearchErrorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSearchErrorTableViewCell.m; sourceTree = "<group>"; };
+		3582AD771BCE12C100611136 /* PMDailyForecastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDailyForecastTableViewCell.h; sourceTree = "<group>"; };
+		3582AD781BCE12C100611136 /* PMDailyForecastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDailyForecastTableViewCell.m; sourceTree = "<group>"; };
 		35B991781BCBC60400358608 /* PMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMUtils.h; sourceTree = "<group>"; };
 		35B991791BCBC60400358608 /* PMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMUtils.m; sourceTree = "<group>"; };
 		35B9917C1BCBC7AA00358608 /* NSValueTransformer+PM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+PM.h"; sourceTree = "<group>"; };
@@ -562,6 +565,8 @@
 				3582AD721BCDC95100611136 /* PMSearchTableViewCell.m */,
 				3582AD741BCDDC4400611136 /* PMSearchErrorTableViewCell.h */,
 				3582AD751BCDDC4400611136 /* PMSearchErrorTableViewCell.m */,
+				3582AD771BCE12C100611136 /* PMDailyForecastTableViewCell.h */,
+				3582AD781BCE12C100611136 /* PMDailyForecastTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -956,6 +961,7 @@
 				35CDEF5D1BCC561E007434E3 /* PMPlaceWWO.m in Sources */,
 				3582AD671BCD363000611136 /* PMSearchVC.m in Sources */,
 				3579589C1BCD0B860010C668 /* PMPlace+MTLManagedObjectSerializing.m in Sources */,
+				3582AD791BCE12C100611136 /* PMDailyForecastTableViewCell.m in Sources */,
 				35CDEF621BCC66F0007434E3 /* PMServicesAssembly.m in Sources */,
 				357EA7C01BCAB94B00605442 /* PMAppAssembly.m in Sources */,
 				357EA7811BCAAF3F00605442 /* main.m in Sources */,

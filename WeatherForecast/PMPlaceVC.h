@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PMWeatherForecast;
 
 @interface PMPlaceVC : UIViewController
-
+@property (nonatomic, strong) PMWeatherForecast *forecast;
 @end

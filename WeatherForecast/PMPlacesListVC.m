@@ -16,6 +16,10 @@
 #import "PMWeatherForecast.h"
 #import "PMCondition.h"
 #import "PMSearchVC.h"
+#import "PMPlaceVC.h"
+
+
+static NSString *const kSegueToPMPlaceVC = @"SegueToPMPlaceVC";
 
 @interface PMPlacesListVC () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -39,6 +43,14 @@
 }
 
 #pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:kSegueToPMPlaceVC]) {
+        PMPlaceVC *placeVC = segue.destinationViewController;
+        placeVC.forecast = [self.forecastsForPlaces objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    }
+}
 
 - (IBAction)prepareForUnwind:(UIStoryboardSegue *)segue
 {
