@@ -95,7 +95,7 @@
         failure(@"This should not happen");
     }];
     
-    expect(self.forecastManager.forecasts).will.equal(@[]);
+    expect(self.forecastManager.forecasts).after(5).equal(@[]);
     OCMVerify([self.storageMock removeObjects:[OCMArg any]]);
 }
 

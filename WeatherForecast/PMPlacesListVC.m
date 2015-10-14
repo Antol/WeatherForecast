@@ -46,10 +46,7 @@
     @weakify(self);
     [[self.forecastManager addPlace:newPlace] subscribeError:^(NSError *error) {
         @strongify(self);
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:error.domain
-                                                                       message:nil
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        [self presentViewController:alert animated:YES completion:nil];
+        [self showAlertWithMessage:error.domain];
     }];
 }
 
@@ -77,10 +74,26 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
+        PMPlace *deletePlace = [[self.forecastsForPlaces objectAtIndex:indexPath.row] place];
+        @weakify(self);
+        [[self.forecastManager removePlace:deletePlace] subscribeError:^(NSError *error) {
+            @strongify(self);
+            [self showAlertWithMessage:error.domain];
+        }];
     }
 }
 
+#pragma mark - Private
+
+- (void)showAlertWithMessage:(NSString *)message
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 @end
 
