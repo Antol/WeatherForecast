@@ -11,11 +11,13 @@
 #import "PMSearchTableViewCell.h"
 #import "PMPlace.h"
 #import "PMApiClient.h"
+#import "PMSearchErrorTableViewCell.h"
 
 @interface PMSearchVC () <UISearchResultsUpdating>
 @property (strong, nonatomic) UISearchController *searchController;
 
 @property (nonatomic, strong) NSArray *places;
+@property (nonatomic, strong) NSString *errorMessage;
 @end
 
 @implementation PMSearchVC
@@ -31,17 +33,29 @@
     [self.searchController.searchBar sizeToFit];
     
     self.definesPresentationContext = YES;
+    
+    self.errorMessage = @"Empty";
 }
 
 #pragma mark - UITableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.places.count;
+    NSInteger count = self.places.count;
+    if (count == 0) {
+        count = 1;
+    }
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.places.count == 0) {
+        PMSearchErrorTableViewCell *cell = [tableView dequeueReusableCellForClass:[PMSearchErrorTableViewCell class] indexPath:indexPath];
+        cell.textLabel.text = self.errorMessage;
+        return cell;
+    }
+    
     PMSearchTableViewCell *cell = [tableView dequeueReusableCellForClass:[PMSearchTableViewCell class] indexPath:indexPath];
     PMPlace *place = [self.places objectAtIndex:indexPath.row];
     cell.textLabel.text = place.name;
@@ -59,8 +73,14 @@
         @strongify(self);
         self.places = x;
         [self.tableView reloadData];
+    } error:^(NSError *error) {
+        @strongify(self);
+        self.places = nil;
+        self.errorMessage = error.domain;
+        [self.tableView reloadData];
     }];
-    [self.tableView reloadData];
 }
 
 @end
+
+

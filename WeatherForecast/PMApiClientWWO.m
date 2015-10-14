@@ -37,9 +37,16 @@
     
     RACSignal *request = [[self.sessionManager
         rac_GET:@"search.ashx" parameters:params]
-        map:^id(RACTuple *x) {
+        flattenMap:^RACStream *(RACTuple *x) {
             NSDictionary *response = x.first;
-            return [response valueForKeyPath:@"search_api.result"];
+            id data = [response valueForKeyPath:@"search_api.result"];
+            if (data) {
+                return [RACSignal return:data];
+            }
+            
+            id errorMsg = [[[response valueForKeyPath:@"data.error"] firstObject] valueForKey:@"msg"];
+            NSError *error = [NSError errorWithDomain:errorMsg?:@"Unknown error" code:0 userInfo:nil];
+            return [RACSignal error:error];
         }];
     return [self mappedResponseRequestWithRequest:request responseClass:[PMPlaceWWO class]];
 }

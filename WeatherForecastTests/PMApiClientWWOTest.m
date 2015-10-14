@@ -17,9 +17,13 @@
 #import <TyphoonPatcher.h>
 #import <OCMock.h>
 #import <RACAFNetworking.h>
+#import "EXPMatchers+error.h"
 
 @interface PMApiClientWWOTest : XCTestCase
 @property (nonatomic, strong) id<PMApiClient> apiClient;
+
+@property (nonatomic, strong) NSString *placeName;
+@property (nonatomic, strong) NSString *wrongPlaceName;
 @end
 
 @implementation PMApiClientWWOTest
@@ -27,15 +31,28 @@
 - (void)setUp
 {
     [super setUp];
+    self.placeName = @"Narnia";
+    self.wrongPlaceName = @"111111111111";
+    
     PMServicesAssembly *assembly = [[PMServicesAssembly assembly] activateWithCollaboratingAssemblies:@[[PMConfigAssembly assembly]]];
     
     TyphoonPatcher *patcher = [[TyphoonPatcher alloc] init];
     [patcher patchDefinitionWithSelector:@selector(httpSessionManager) withObject:^id{
         id sessionManagerMock = OCMClassMock([AFHTTPSessionManager class]);
         
+        OCMArg *arg1 = [OCMArg checkWithBlock:^BOOL(id obj) {
+            return [[obj valueForKey:@"q"] isEqualToString:self.placeName];
+        }];
         RACTuple *searchTuple = [RACTuple tupleWithObjectsFromArray:@[[self placesJson], @"temp"]];
         RACSignal *searchApiResponseSignal = [[RACSignal return:searchTuple] delay:0.5];
-        OCMStub([sessionManagerMock rac_GET:@"search.ashx" parameters:[OCMArg any]]).andReturn(searchApiResponseSignal);
+        OCMStub([sessionManagerMock rac_GET:@"search.ashx" parameters:arg1]).andReturn(searchApiResponseSignal);
+        
+        OCMArg *arg2 = [OCMArg checkWithBlock:^BOOL(id obj) {
+            return [[obj valueForKey:@"q"] isEqualToString:self.wrongPlaceName];
+        }];
+        RACTuple *searchTuple2 = [RACTuple tupleWithObjectsFromArray:@[[self errorJson], @"temp"]];
+        RACSignal *searchApiResponseSignal2 = [[RACSignal return:searchTuple2] delay:0.5];
+        OCMStub([sessionManagerMock rac_GET:@"search.ashx" parameters:arg2]).andReturn(searchApiResponseSignal2);
         
         RACTuple *weatherTuple = [RACTuple tupleWithObjectsFromArray:@[[self weatherForecastJson], @"temp"]];
         RACSignal *weatherApiResponseSignal = [[RACSignal return:weatherTuple] delay:0.5];
@@ -55,18 +72,25 @@
 
 - (void)testSearchPlaceByName
 {
-    NSString *placeName = @"Narnia";
     PMPlace *place = [PMPlace new];
-    place.name = placeName;
+    place.name = self.placeName;
     
-    RACSignal *searchSignal = [self.apiClient searchPlaceByName:placeName];
+    RACSignal *searchSignal = [self.apiClient searchPlaceByName:self.placeName];
     
+    @weakify(self);
     expect(searchSignal).will.matchValue(0, ^BOOL(NSArray *places){
+        @strongify(self);
         BOOL isMatch = (places.count == 3);
         PMPlace *place = places.firstObject;
-        isMatch = isMatch && [place.name isEqualToString:placeName];
+        isMatch = isMatch && [place.name isEqualToString:self.placeName];
         return isMatch;
     });
+}
+
+- (void)testIncorectSearchResult
+{
+    RACSignal *searchSignal = [self.apiClient searchPlaceByName:self.wrongPlaceName];
+    expect(searchSignal).will.error();
 }
 
 - (void)testGetWeatherForecastForPlace
@@ -329,6 +353,19 @@
                             @"value": @"http://www.worldweatheronline.com/v2/weather.aspx?q=40.0992,-83.1142"
                         }
                     ]
+                }
+            ]
+        }
+    };
+}
+
+- (NSDictionary *)errorJson
+{
+    return @{
+        @"data": @{
+            @"error": @[
+                @{
+                    @"msg": @"Unable to find any matching weather location to the query submitted!"
                 }
             ]
         }
