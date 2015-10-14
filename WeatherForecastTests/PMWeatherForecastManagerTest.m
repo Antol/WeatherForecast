@@ -84,7 +84,7 @@
         failure(@"This should not happen");
     }];
     
-    expect(self.forecastManager.forecasts).will.equal(@[self.forecast, self.forecast2]);
+    expect(self.forecastManager.forecasts).after(5).equal(@[self.forecast, self.forecast2]);
     OCMVerify([self.storageMock saveObjects:[OCMArg any]]);
     OCMVerify([self.apiClientMock getWeatherForecastForPlace:self.place2]);
 }

@@ -14,7 +14,7 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
-        PMSelectorString(query): @"query",
+        PMSelectorString(query): @[@"areaName", @"region", @"country", @"query"],
         PMSelectorString(name): @"areaName",
         PMSelectorString(region): @"region",
         PMSelectorString(country): @"country",
@@ -29,5 +29,23 @@
 
 + (id)latitudeJSONTransformer{ return [NSValueTransformer PM_stringToNumberTransformer]; }
 + (id)longitudeJSONTransformer{ return [NSValueTransformer PM_stringToNumberTransformer]; }
+
++ (id)queryJSONTransformer
+{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSDictionary *data, BOOL *success, NSError *__autoreleasing *error) {
+        if (data.allKeys.count == 0) {
+            return nil;
+        }
+        if ([[data objectForKey:@"query"] length] > 0) {
+            return [data objectForKey:@"query"];
+        }
+        NSValueTransformer *transformer = [NSValueTransformer PM_arrayWithSingleValueDictionaryTransformer];
+        NSMutableArray *queryArray = [@[] mutableCopy];
+        [queryArray addObject:[transformer transformedValue:[data objectForKey:@"areaName"]]];
+        [queryArray addObject:[transformer transformedValue:[data objectForKey:@"region"]]];
+        [queryArray addObject:[transformer transformedValue:[data objectForKey:@"country"]]];
+        return [queryArray componentsJoinedByString:@", "];
+    }];
+}
 
 @end
