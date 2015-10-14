@@ -11,8 +11,12 @@
 #import "PMWeatherForecast.h"
 #import "PMPlace.h"
 #import "PMCondition.h"
+#import "PMDailyForecastTableViewCell.h"
+#import "PMNibManagement.h"
 
-@interface PMPlaceVC ()
+@interface PMPlaceVC () <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (weak, nonatomic) IBOutlet UILabel *iconLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weatherDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
@@ -21,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *windDirectionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *precipitationLabel;
+
+@property (nonatomic, strong) NSArray *futureDaysConditions;
 @end
 
 @implementation PMPlaceVC
@@ -39,8 +45,31 @@
         self.windSpeedLabel.text = [NSString stringWithFormat:@"%@ Kmph", forecast.currentCondition.windSpeedKmph];
         self.windDirectionLabel.text = forecast.currentCondition.windDirectionDescription;
         self.humidityLabel.text = [NSString stringWithFormat:@"%@ %%", forecast.currentCondition.humidityPercentage];
-        self.precipitationLabel.text = [NSString stringWithFormat:@"%@ mm", forecast.currentCondition.precipitationMm];;
+        self.precipitationLabel.text = [NSString stringWithFormat:@"%@ mm", forecast.currentCondition.precipitationMm];
+        
+        self.futureDaysConditions = [forecast.dailyForecastConditions mtl_arrayByRemovingFirstObject];
+    }];
+    
+    [RACObserve(self, futureDaysConditions) subscribeNext:^(id x) {
+        @strongify(self);
+        [self.tableView reloadData];
     }];
 }
 
+#pragma mark - UITableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.futureDaysConditions.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PMDailyForecastTableViewCell *cell = [tableView dequeueReusableCellForClass:[PMDailyForecastTableViewCell class] indexPath:indexPath];
+    cell.condition = [self.futureDaysConditions objectAtIndex:indexPath.row];
+    return cell;
+}
+
 @end
+
+
