@@ -41,6 +41,7 @@ typedef NS_ENUM(NSUInteger, PMWindDirection) {
 @property (nonatomic, strong) NSNumber *windSpeedKmph;
 @property (nonatomic, strong) NSNumber *windDirectionDegree;
 @property (nonatomic, assign) PMWindDirection windDirection;
+@property (nonatomic, strong) NSString *windDirectionDescription;
 
 @property (nonatomic, assign) NSNumber *weatherCode;
 @property (nonatomic, strong) NSString *weatherDescription;

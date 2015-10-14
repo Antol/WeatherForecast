@@ -24,6 +24,7 @@
         PMSelectorString(windSpeedKmph): @"windspeedKmph",
         PMSelectorString(windDirectionDegree): @"winddirDegree",
         PMSelectorString(windDirection): @"winddir16Point",
+        PMSelectorString(windDirectionDescription): @"winddir16Point",
         PMSelectorString(weatherCode): @"weatherCode",
         PMSelectorString(weatherDescription): @"weatherDesc",
         PMSelectorString(weatherIconUrl): @"weatherIconUrl",
