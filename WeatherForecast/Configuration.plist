@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>api.key</key>
+	<string>4bfea3dc1032fed3e7dd3d0da042c9550e550db3</string>
+	<key>api.url</key>
+	<string>NSURL(http://api.worldweatheronline.com/free/v1/)</string>
+</dict>
+</plist>
